@@ -1,0 +1,5 @@
+.home-bg {
+    background:url(../../../src/Images/Home//HomeBg/HomeBg1234.png);
+    filter: brightness(1);
+    background-size: cover;
+}

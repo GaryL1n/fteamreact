@@ -1,0 +1,26 @@
+.message{
+    .message-area{
+        margin: 24px 0;
+        height: 300px;
+        overflow: scroll;
+    }
+
+    
+    .mes-input{
+        display: flex;
+        padding: 12px;
+        outline: 1px solid lightgray;
+    
+    input{
+        width: 100%;
+        height: 48px;
+       
+        
+        text-align: left;
+        word-wrap: break-word;
+    }
+}
+}
+
+
+

@@ -1,0 +1,46 @@
+.cooler_card_zhongxiao_img {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  // outline: thin solid rgb(20, 237, 9);
+}
+
+.cooler_card_wrap {
+  height: 110%;
+}
+
+.cooler_gray {
+  color: #979797;
+}
+
+.cooler_lesson_position {
+  padding-top: 4%;
+}
+
+// --------------RWD-------------------
+@media (min-width: 1630px) {
+  .lesson_card {
+    h4 {
+      font-size: 1.9rem;
+    }
+    h5 {
+      font-size: 1.6rem;
+    }
+
+    p,
+    span {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media (max-width: 1630px) {
+  .lesson_card {
+    p,
+    span {
+      font-size: 0.99rem;
+    }
+  }
+}
