@@ -31,7 +31,7 @@ const WatchFavorite = () => {
       <div className="vh-100 vw-100 d-flex justify-content-center align-items-center bg-dark watchFavoriteWrap">
         <div className="h-90 w-30 bg-light watchFavoriteBox">
           <div className="h-10 w-100 d-flex justify-content-center align-items-center watchFavoriteTitle">
-            <h2>{memId} Favorite</h2>
+            <h2>{memId} Saved</h2>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"

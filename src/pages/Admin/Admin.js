@@ -151,7 +151,7 @@ const Admin = () => {
                   <th>Nickname</th>
                   <th>Email</th>
                   <th>Created</th>
-                  <th>Favorites</th>
+                  <th>Saved</th>
                   <th className="thRight">Delete</th>
                 </tr>
               </thead>

@@ -7,7 +7,7 @@ import Lesson from './Lesson';
 import Chat from './Chat';
 
 const AllRecord = ({setCartTotalDep}) => {
-  const [selectItem, setSelectItem] = useState('FAVORITE');
+  const [selectItem, setSelectItem] = useState('SAVED');
   let moveTrain = 'translateX(0%)';
   if (selectItem === 'RECORD') {
     moveTrain = 'translateX(-25%)';
