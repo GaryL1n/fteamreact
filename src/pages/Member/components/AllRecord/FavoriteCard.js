@@ -82,7 +82,6 @@ const FavoriteCard = ({ setCartTotalDep }) => {
                     alert('商品成功加入購物車');
                   }
                 });
-              setCartTotalDep((pre) => pre + 1);
             } else {
               alert('商品加入失敗');
             }
