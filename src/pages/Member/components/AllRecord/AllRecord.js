@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MuiTabs from './MuiTabs';
 import '../../styles/AllRecord.scss';
 import Favorite from './Favorite';
 import Record from './Record';
 import Lesson from './Lesson';
 import Chat from './Chat';
+import { gsap } from 'gsap';
 
-const AllRecord = ({setCartTotalDep}) => {
+const AllRecord = ({ setCartTotalDep }) => {
   const [selectItem, setSelectItem] = useState('SAVED');
   let moveTrain = 'translateX(0%)';
   if (selectItem === 'RECORD') {
@@ -18,11 +19,21 @@ const AllRecord = ({setCartTotalDep}) => {
   if (selectItem === 'CHAT') {
     moveTrain = 'translateX(-75%)';
   }
+  const allRecordRef = useRef(null);
+  useEffect(() => {
+    gsap.from(allRecordRef.current, {
+      opacity: 0,
+      y: -150,
+      duration: 1.5,
+      // ease: 'expo',
+      ease: 'circ',
+    });
+  }, []);
   return (
     <>
       <div className="allRecordWarp">
         <MuiTabs selectItem={selectItem} setSelectItem={setSelectItem} />
-        <div className="w-100 h-90 memberAllRecordWrap">
+        <div className="w-100 h-90 memberAllRecordWrap" ref={allRecordRef}>
           <div
             className="h-100 d-flex"
             style={{
