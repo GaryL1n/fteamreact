@@ -6,10 +6,8 @@
   align-items: flex-end;
 }
 
-.cooler_lesson_card_btn {
-  background-color: var(--main);
-  box-shadow: 6px 6px 0 0 #61dafb82;
-  cursor: pointer;
+.cooler_lesson_card_btn:focus {
+  box-shadow: none !important;
 }
 
 .cooler_lesson_card_name {

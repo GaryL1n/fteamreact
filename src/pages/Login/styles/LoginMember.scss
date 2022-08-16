@@ -49,13 +49,8 @@
         color: lightcoral;
     }
 
-    .googleFBsvgBox {
-        height: 20%;
-    }
-
-    svg {
-        width: 5%;
-        margin: 5%;
+    a {
+        text-decoration: none;
     }
 
     .buttonChangePage {
@@ -87,9 +82,8 @@
         form {
             // padding-top: 10%;
             // height: 70%;
-            height: 40%;
-            padding-top: 20%;
-            height: 70%;
+            height: 80%;
+            padding-top: 15%;
         }
 
         .googleFBsvgBox {

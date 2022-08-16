@@ -33,17 +33,19 @@ routes/admin (全)
 
 routes/member (全)
 
+routes/google (全)
+
 ## 使用語言 & 技術
 
  前端 : React、CSS、Sass、Bootstrap、MUI、GSAP、axios、echarts-for-react、swiper、socket.io-client、uuid
 
    useState、useEffect、useContext、useRef、useMemo、useNavigate、useParams
 
- 後端 : Node、Express、bcryptjs、cors、joi、jsonwebtoken、moment-timezone、nodemon、nodemailer、socket.io、uuid、multer、mysql2
+ 後端 : Node、Express、bcryptjs、cors、joi、jsonwebtoken、moment-timezone、nodemon、nodemailer、socket.io、uuid、multer、mysql2、google-auth-library
 
 本人負責部分為
 
-1. 會員註冊、登入、登出/管理員登入、登出
+1. 會員註冊、登入(含Google第三方登入)、登出/管理員登入、登出
 
 2. Navbar、SideBar 狀態變動
 
@@ -55,6 +57,8 @@ routes/member (全)
 ### --註冊、登入、登出--
 
 使用JWT進行登入登出
+
+使用Google帳號登入
 
 若未登入 點擊Navbar會員icon跳轉到會員登入頁面
 

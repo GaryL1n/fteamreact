@@ -183,13 +183,23 @@ const MemberEdit = ({
           onChange={handleFormChange}
         >
           <h5>Account</h5>
-          <input
-            type="text"
-            name="account"
-            required
-            value={fields.account}
-            onChange={handleFieldsChange}
-          />
+          {member.google_id ? (
+            <input
+              type="text"
+              name="account"
+              value="Google User"
+              disabled
+              onChange={handleFieldsChange}
+            />
+          ) : (
+            <input
+              type="text"
+              name="account"
+              required
+              value={fields.account}
+              onChange={handleFieldsChange}
+            />
+          )}
           <p>{fieldErrors.account}</p>
           <h5>User Name</h5>
           <input
@@ -223,13 +233,24 @@ const MemberEdit = ({
           />
           <p>{fieldErrors.mobile}</p>
           <h5>Email</h5>
-          <input
-            type="email"
-            name="email"
-            required
-            value={fields.email}
-            onChange={handleFieldsChange}
-          />
+          {member.google_id ? (
+            <input
+              type="email"
+              name="email"
+              required
+              disabled
+              value={fields.email}
+              onChange={handleFieldsChange}
+            />
+          ) : (
+            <input
+              type="email"
+              name="email"
+              required
+              value={fields.email}
+              onChange={handleFieldsChange}
+            />
+          )}
           <p>{fieldErrors.email}</p>
           <h5>Address</h5>
           <textarea

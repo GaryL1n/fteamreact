@@ -5,14 +5,14 @@ function LessonSelectTime(props) {
   return (
     <div className="w-33 ">
       <select
-        className="h-100 cooler_select"
+        className="w-50 h-100 cooler_select"
         value={timeList}
         // 換選項的動作
         onChange={(e) => {
           setTimeList(e.target.value);
         }}
       >
-        <option className="cooler_select" value="">
+        <option className="cooler_select" value="TIME">
           TIME
         </option>
         {timeListOption.map((v, i) => {

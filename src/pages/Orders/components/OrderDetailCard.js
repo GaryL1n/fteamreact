@@ -3,6 +3,7 @@ import Scroll from 'react-scroll';
 
 const OrderDetailCard = (props) => {
   const { allDetailItems } = props;
+
   return (
     <div className="w-100 h-100">
       <Scroll.Element className="orders-detail-card-scroll">

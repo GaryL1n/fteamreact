@@ -188,7 +188,7 @@ const FilterBox = (props) => {
                 setColour(!colour);
               }}
             >
-              <h5>Colour</h5>
+              <h5>Color</h5>
               <span
                 style={{
                   display: colour === false ? 'block' : 'none',

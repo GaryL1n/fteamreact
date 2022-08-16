@@ -21,7 +21,7 @@ const Lesson_taichung = (props) => {
   // 時間選單
   const [timeList, setTimeList] = useState('');
   // 價格選單
-  // const [priceList, setpriceList] = useState('');
+  const [priceSortSelect, setPriceSortSelect] = useState('');
 
   // 舞種選項
   const danceListOption = ['Hip Hop', 'Popping', 'Locking', 'Choreography'];
@@ -175,6 +175,9 @@ const Lesson_taichung = (props) => {
                 timeListOption={timeListOption}
                 timeList={timeList}
                 setTimeList={setTimeList}
+                //價格種類
+                priceSortSelect={priceSortSelect}
+                setPriceSortSelect={setPriceSortSelect}
                 // 會員ID
                 loginID={loginID}
                 // 購物車新增數字

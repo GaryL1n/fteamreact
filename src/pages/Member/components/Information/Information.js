@@ -25,6 +25,7 @@ const Information = () => {
       opacity: 0,
       y: -250,
       duration: 2.5,
+      delay: 0.7,
       // ease: 'expo',
       ease: 'circ',
     });

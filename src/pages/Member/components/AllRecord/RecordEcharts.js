@@ -103,7 +103,8 @@ const RecordEcharts = () => {
         avoidLabelOverlap: false,
         itemStyle: {
           borderRadius: 10,
-          borderColor: '#61dafb',
+          // borderColor: '#61dafb',
+          borderColor: 'white',
           borderWidth: 3,
         },
         label: {
@@ -122,6 +123,15 @@ const RecordEcharts = () => {
         },
         data: [
           // 數量不是0再顯示
+          // whiteLength !== 0 ? { value: whiteLength, name: 'White' } : '',
+          // blackLength !== 0 ? { value: blackLength, name: 'Black' } : '',
+          // blueLength !== 0 ? { value: blueLength, name: 'Blue' } : '',
+          // greenLength !== 0 ? { value: greenLength, name: 'Green' } : '',
+          // yellowLength !== 0 ? { value: yellowLength, name: 'Yellow' } : '',
+          // orangeLength !== 0 ? { value: orangeLength, name: 'Orange' } : '',
+          // redLength !== 0 ? { value: redLength, name: 'Red' } : '',
+          // pinkLength !== 0 ? { value: pinkLength, name: 'Pink' } : '',
+          // purpleLength !== 0 ? { value: purpleLength, name: 'Purple' } : '',
           { value: whiteLength, name: 'White' },
           { value: blackLength, name: 'Black' },
           { value: blueLength, name: 'Blue' },

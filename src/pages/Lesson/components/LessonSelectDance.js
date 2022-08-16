@@ -13,7 +13,7 @@ function LessonSelectDance(props) {
           setDanceList(e.target.value);
         }}
       >
-        <option className="cooler_select" value="">
+        <option className="cooler_select" value="DANCE">
           DANCE
         </option>
         {danceListOption.map((v, i) => {

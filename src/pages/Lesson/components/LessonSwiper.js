@@ -13,7 +13,13 @@ import { Navigation } from 'swiper';
 
 import { Link } from 'react-router-dom';
 import '../style/Lesson.css';
-
+// map彈跳視窗
+import LessonConfirmAlert from './LessonConfirmAlert';
+const center = [
+  { lat: 25.041851651290155, lng: 121.55534122649684 },
+  { lat: 25.031099292075666, lng: 121.46450972649664 },
+  { lat: 24.155632861663089, lng: 120.65585056881044 },
+];
 export default function LessonSwiper() {
   return (
     <>
@@ -35,25 +41,13 @@ export default function LessonSwiper() {
                   <h5 className=" text-center h-30 fw-bold">【台北忠孝館】</h5>
                 </div>
                 <div className="h-15 d-flex ">
-                  <div className="coolermap d-inline-block">
-                    <a href="#/">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        stroke="black"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </a>
+                  <div className="w-15 coolermap d-inline-block">
+                    <LessonConfirmAlert center={center[0]} />
                   </div>
-                  <div className="fs-6 fw-bold">
-                    <p>國父紀念館</p>
+                  <div className=" w-75 fs-6 fw-bold">
+                    <p className="h-100 d-flex align-items-center">
+                      國父紀念館
+                    </p>
                   </div>
                 </div>
                 <div className="h-55">
@@ -90,25 +84,11 @@ export default function LessonSwiper() {
                   </h5>
                 </div>
                 <div className="h-15 d-flex ">
-                  <div className="coolermap d-inline-block">
-                    <a href="#/">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        stroke="black"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </a>
+                  <div className="w-15 coolermap d-inline-block">
+                    <LessonConfirmAlert center={center[1]} />
                   </div>
-                  <div className="fs-6 fw-bold">
-                    <p>新埔店</p>
+                  <div className=" w-75 fs-6 fw-bold">
+                    <p className="h-100 d-flex align-items-center">新埔店</p>
                   </div>
                 </div>
                 <div className="h-55">
@@ -144,25 +124,11 @@ export default function LessonSwiper() {
                   </h5>
                 </div>
                 <div className="h-15 d-flex ">
-                  <div className="coolermap d-inline-block">
-                    <a href="#/">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        stroke="black"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </a>
+                  <div className="w-15 coolermap d-inline-block">
+                    <LessonConfirmAlert center={center[1]} />
                   </div>
-                  <div className="fs-6 fw-bold">
-                    <p>新埔店</p>
+                  <div className=" w-75 fs-6 fw-bold">
+                    <p className="h-100 d-flex align-items-center">新埔店</p>
                   </div>
                 </div>
                 <div className="h-55">
@@ -192,25 +158,11 @@ export default function LessonSwiper() {
                   <h5 className=" text-center h-30 fw-bold">【台中精誠館】</h5>
                 </div>
                 <div className="h-15 d-flex ">
-                  <div className="coolermap d-inline-block">
-                    <a href="#/">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        stroke="black"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </a>
+                  <div className="w-15 coolermap d-inline-block">
+                    <LessonConfirmAlert center={center[2]} />
                   </div>
-                  <div className="fs-6 fw-bold">
-                    <p></p>
+                  <div className=" w-75 fs-6 fw-bold">
+                    <p className="h-100 d-flex align-items-center"></p>
                   </div>
                 </div>
                 <div className="h-55">

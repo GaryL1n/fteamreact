@@ -34,7 +34,8 @@ const AvatarForm = ({ member }) => {
       'http://localhost:3000/member/upload',
       data
     );
-    setField(response.data.filename);
+    const avatarURL = 'http://localhost:3000/avatar/' + response.data.filename;
+    setField(avatarURL);
   }
 
   // 表單點擊送出後
@@ -83,7 +84,7 @@ const AvatarForm = ({ member }) => {
             />
             <figure className="d-flex justify-content-center h-70">
               <img
-                src={`http://localhost:3000/avatar/${field}`}
+                src={field}
                 alt=""
                 onClick={clickAvatar}
                 // 大頭貼更換成功動畫效果

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/Personal.scss';
+import { alert } from '../../../../components/AlertComponent';
 
 const Personal = ({
   setmoveTrain,
@@ -54,6 +55,10 @@ const Personal = ({
               onClick={(e) => {
                 // 阻擋按鈕預設行為
                 e.preventDefault();
+                if (member.google_id) {
+                  alert('Google用戶無法修改密碼');
+                  return;
+                }
                 // 移動到修改密碼
                 setmoveTrain('translateY(-200%)');
               }}

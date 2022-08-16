@@ -25,6 +25,7 @@ const AllRecord = ({ setCartTotalDep }) => {
       opacity: 0,
       y: -150,
       duration: 1.5,
+      delay: 0.7,
       // ease: 'expo',
       ease: 'circ',
     });

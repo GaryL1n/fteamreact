@@ -12,10 +12,10 @@ import Lesson from './pages/Lesson/Lesson';
 import Lesson_zhongxiao from './pages/Lesson/Lesson_zhongxiao';
 import Lesson_banqiao from './pages/Lesson/Lesson_banqiao';
 import Lesson_taichung from './pages/Lesson/Lesson_taichung';
-import Products from './pages/Product/Products';
+
 import ProductMain from './pages/Product/ProductMain';
 import ProductDetails from './pages/Product/ProductDetails';
-import ProductTabsBoxItem1 from './pages/Product/components/ProductTabsBoxItem1';
+
 import Customized from './pages/Customized/Customized';
 import Orders from './pages/Orders/Orders';
 import Login from './pages/Login/Login';
@@ -42,8 +42,7 @@ function App() {
   const [lessonTotalQty, setLessonTotalQty] = useState(0);
   const [customTotalQty, setCustomTotalQty] = useState(0);
   const [cartTotalDep, setCartTotalDep] = useState(0);
-  // 商品原始資料
-  const [data, setData] = useState({});
+
   // 商品收藏後icon + 1
   const [favoritesNum, setFavoritesNum] = useState(0);
 
@@ -116,8 +115,6 @@ function App() {
                       path="products"
                       element={
                         <ProductMain
-                          data={data}
-                          setData={setData}
                           favoritesNum={favoritesNum}
                           setFavoritesNum={setFavoritesNum}
                           cartTotalDep={cartTotalDep}
@@ -216,6 +213,7 @@ function App() {
                           setProductTotalQty={setProductTotalQty}
                           setCustomTotalQty={setCustomTotalQty}
                           setLessonTotalQty={setLessonTotalQty}
+                          cartTotalDep={cartTotalDep}
                         />
                       }
                     />

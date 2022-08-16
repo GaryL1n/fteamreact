@@ -8,7 +8,7 @@ import '../style/LessonTabPanel.scss';
 import LessonCard from './Lesson_card';
 import LessonSelectTime from './LessonSelectTime';
 import LessonSelectDance from './LessonSelectDance';
-// import LessonSelectPrice from './LessonSelectPrice';
+import LessonSelectPrice from './LessonSelectPrice';
 import LessonTeacher from './LessonTeacher';
 
 import ScrollBox from '../components/ScrollBox/ScrollBox';
@@ -61,6 +61,10 @@ export default function LessonTabPanel(props) {
     timeList,
     setTimeList,
     //
+    // priceListOption,
+    priceSortSelect,
+    setPriceSortSelect,
+    //
     loginID,
     setCartTotalDep,
     //
@@ -109,7 +113,10 @@ export default function LessonTabPanel(props) {
             danceList={danceList}
             setDanceList={setDanceList}
           />
-          {/* <LessonSelectPrice /> */}
+          <LessonSelectPrice
+            priceSortSelect={priceSortSelect}
+            setPriceSortSelect={setPriceSortSelect}
+          />
         </div>
         <div className="w-100 h-80">
           <ScrollBox>
@@ -118,10 +125,16 @@ export default function LessonTabPanel(props) {
               setLessonRaw={setLessonRaw}
               lessonDisplay={lessonDisplay}
               setLessonDisplay={setLessonDisplay}
+              //
               danceList={danceList}
               setDanceList={setDanceList}
+              //
               timeList={timeList}
               setTimeList={setTimeList}
+              //
+              priceSortSelect={priceSortSelect}
+              setPriceSortSelect={setPriceSortSelect}
+              //
               loginID={loginID}
               setCartTotalDep={setCartTotalDep}
             />

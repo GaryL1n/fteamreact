@@ -108,9 +108,16 @@ const ProductDetails = (props) => {
         },
       })
       .then((res) => {
-        // 拿到成功或失敗的訊息
-        console.log('favorites==', res.data);
-        res.data.success === 'true' ? detailsSuccess() : detailsError();
+        if (res.data.success === 'true') {
+          let i = alert('商品收藏成功');
+          i.then((res) => {
+            if (res === true) {
+              setCartTotalDep((prev) => prev + 1);
+            }
+          });
+        } else {
+          alert('商品取消收藏');
+        }
         setHeart(!heart);
         countDetailsFavorites();
       });
@@ -162,14 +169,14 @@ const ProductDetails = (props) => {
 
     axios.post('/carts', addCarts).then((res) => {
       if (res.data.success === true) {
-        let i = alert('Add to Carts Success');
+        let i = alert('商品加入購物車成功');
         i.then((res) => {
           if (res === true) {
             setCartTotalDep((prev) => prev + 1);
           }
         });
       } else {
-        alert('Carts already Has This Product');
+        alert('商品已經存在購物車');
       }
     });
   };

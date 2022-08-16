@@ -37,6 +37,7 @@ const Orders = () => {
   }, []);
   const orderCardRef = useRef(null);
   const orderTabRef = useRef(null);
+  // gsap setting
   useEffect(() => {
     gsap.from(orderTabRef.current, {
       opacity: 0,
@@ -46,8 +47,9 @@ const Orders = () => {
     });
     gsap.from(orderCardRef.current, {
       opacity: 0,
-      y: 100,
-      duration: 2,
+      // y: 100,
+      duration: 1.5,
+      delay: 0.9,
       ease: 'expo',
     });
   }, []);

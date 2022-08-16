@@ -207,11 +207,7 @@ const Chat = ({ selectItem }) => {
             {[chatimg].filter((v, i) => v.includes('jpg' | 'png' | 'gif'))
               .length !== 0 ? (
               <div className="d-flex align-items-center pt-2 pb-2">
-                <img
-                  className="avatar"
-                  src={`http://localhost:3000/avatar/${avatar}`}
-                  alt=""
-                />
+                <img className="avatar" src={avatar} alt="" />
                 <h3 style={{ marginLeft: '1%' }}>
                   {name}
                   <span> : </span>
@@ -224,11 +220,7 @@ const Chat = ({ selectItem }) => {
               </div>
             ) : (
               <div className="d-flex align-items-center pt-2 pb-2">
-                <img
-                  className="avatar"
-                  src={`http://localhost:3000/avatar/${avatar}`}
-                  alt=""
-                />
+                <img className="avatar" src={avatar} alt="" />
                 <h3 style={{ marginLeft: '1%' }}>
                   {name}
                   <span>
@@ -260,11 +252,7 @@ const Chat = ({ selectItem }) => {
                 <h3 style={{ marginRight: '1%' }}>
                   <span style={{ marginRight: '5px' }}> :</span>
                 </h3>
-                <img
-                  className="avatar"
-                  src={`http://localhost:3000/avatar/${avatar}`}
-                  alt=""
-                />
+                <img className="avatar" src={avatar} alt="" />
               </div>
             ) : (
               <div className="d-flex justify-content-end align-items-center pt-2 pb-2">
@@ -281,11 +269,7 @@ const Chat = ({ selectItem }) => {
                     :
                   </span>
                 </h3>
-                <img
-                  className="avatar"
-                  src={`http://localhost:3000/avatar/${avatar}`}
-                  alt=""
-                />
+                <img className="avatar" src={avatar} alt="" />
               </div>
             )}
           </>
@@ -309,11 +293,7 @@ const Chat = ({ selectItem }) => {
                       v.includes('jpg' | 'png' | 'gif')
                     ).length !== 0 ? (
                       <div className="d-flex align-items-center pt-2 pb-2">
-                        <img
-                          className="avatar"
-                          src={`http://localhost:3000/avatar/${v.mem_avatar}`}
-                          alt=""
-                        />
+                        <img className="avatar" src={v.mem_avatar} alt="" />
                         <h3 style={{ marginLeft: '1%' }}>
                           {v.mem_nickname ? v.mem_nickname : v.mem_name}
                           <span> : </span>
@@ -326,11 +306,7 @@ const Chat = ({ selectItem }) => {
                       </div>
                     ) : (
                       <div className="d-flex align-items-center pt-2 pb-2">
-                        <img
-                          className="avatar"
-                          src={`http://localhost:3000/avatar/${v.mem_avatar}`}
-                          alt=""
-                        />
+                        <img className="avatar" src={v.mem_avatar} alt="" />
                         <h3 style={{ marginLeft: '1%' }}>
                           {v.mem_nickname ? v.mem_nickname : v.mem_name}
                           <span>
@@ -369,11 +345,7 @@ const Chat = ({ selectItem }) => {
                         <h3 style={{ marginRight: '1%' }}>
                           <span style={{ marginRight: '5px' }}> :</span>
                         </h3>
-                        <img
-                          className="avatar"
-                          src={`http://localhost:3000/avatar/${v.mem_avatar}`}
-                          alt=""
-                        />
+                        <img className="avatar" src={v.mem_avatar} alt="" />
                       </div>
                     ) : (
                       <div className="d-flex justify-content-end align-items-center pt-2 pb-2">
@@ -396,11 +368,7 @@ const Chat = ({ selectItem }) => {
                             :
                           </span>
                         </h3>
-                        <img
-                          className="avatar"
-                          src={`http://localhost:3000/avatar/${v.mem_avatar}`}
-                          alt=""
-                        />
+                        <img className="avatar" src={v.mem_avatar} alt="" />
                       </div>
                     )}
                   </>

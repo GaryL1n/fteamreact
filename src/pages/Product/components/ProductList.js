@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styles/ProductMain.scss';
 import axios from '../commons/axios';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../../components/AuthContext';
@@ -28,30 +27,6 @@ const ProductList = (props) => {
   // 為了購物車
   const [memId, setMemId] = useState(0);
 
-  // // 收藏成功提示訊息設定
-  // const favoriteSuccess = () => {
-  //   toast.success('Add Favorites Success', {
-  //     position: 'top-center',
-  //     autoClose: 1500,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //   });
-  // };
-  // // 取消收藏成功提示訊息設定
-  // const favoriteError = () => {
-  //   toast.error('Cancel Favorites Success', {
-  //     position: 'top-center',
-  //     autoClose: 1500,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //   });
-  // };
   // 收藏按鈕開關
   const [heart, setHeart] = useState(false);
   // 收藏商品與取消收藏商品;
@@ -224,18 +199,6 @@ const ProductList = (props) => {
           <span>$ {price}</span>
         </p>
       </div>
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
     </div>
   );
 };

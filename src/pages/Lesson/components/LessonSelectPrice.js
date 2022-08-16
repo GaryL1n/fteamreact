@@ -1,28 +1,28 @@
+// import { useState } from 'react';
 import '../style/LessonSelectPrice.scss';
 
 function LessonSelectPrice(props) {
-  const { danceListOption, danceList, setDanceList } = props;
+  const { priceSortSelect, setPriceSortSelect } = props;
 
   return (
     <div className="w-33 ">
       <select
         className="h-100 cooler_select"
-        value={danceList}
+        value={priceSortSelect}
         // 換選項的動作
         onChange={(e) => {
-          setDanceList(e.target.value);
+          setPriceSortSelect(e.target.value);
         }}
       >
-        <option className="cooler_select" value="">
-          DANCE
+        <option className="cooler_select" value="PRICE">
+          PRICE
         </option>
-        {danceListOption.map((v, i) => {
-          return (
-            <option className="cooler_select" key={i} value={v}>
-              {v}
-            </option>
-          );
-        })}
+        <option className="cooler_select" value="Low">
+          Low to High
+        </option>
+        <option className="cooler_select" value="High">
+          High to Low
+        </option>
       </select>
     </div>
   );

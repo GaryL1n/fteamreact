@@ -21,7 +21,7 @@ const Lesson_zhongxiao = (props) => {
   // 時間選單
   const [timeList, setTimeList] = useState('');
   // 價格選單
-  // const [priceList, setpriceList] = useState('');
+  const [priceSortSelect, setPriceSortSelect] = useState('');
 
   // 舞種選項
   const danceListOption = ['Hip Hop', 'Popping', 'Locking', 'Choreography'];
@@ -62,20 +62,20 @@ const Lesson_zhongxiao = (props) => {
         });
     }
   }, []);
-
+  // 抓課程資料
   const getLessonData = async () => {
     const response = await axios.get(
       `http://localhost:3000/lesson?location=忠孝館`
     );
     // 設定到state
     setLessonRaw(response.data);
-
     setLessonDisplay(response.data);
   };
   useEffect(() => {
     getLessonData();
   }, []);
 
+  //抓老師資料
   const getTeacherData = async () => {
     const response = await axios.get(
       `http://localhost:3000/lesson/teacher_category?location=忠孝館`
@@ -83,8 +83,6 @@ const Lesson_zhongxiao = (props) => {
     // 設定到state
     setTeacherDisplay(response.data);
   };
-
-  // console.log('teacherDisplay:', teacherDisplay);
 
   useEffect(() => {
     getTeacherData();
@@ -178,6 +176,9 @@ const Lesson_zhongxiao = (props) => {
                 timeListOption={timeListOption}
                 timeList={timeList}
                 setTimeList={setTimeList}
+                //價格種類
+                priceSortSelect={priceSortSelect}
+                setPriceSortSelect={setPriceSortSelect}
                 // 會員ID
                 loginID={loginID}
                 // 購物車新增數字

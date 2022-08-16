@@ -1,15 +1,43 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import { useSpinner } from '../../components/useSpinner/useSpinner';
 import Information from './components/Information/Information';
 import AllRecord from './components/AllRecord/AllRecord';
 import './styles/Member.scss';
 import { gsap } from 'gsap';
+import axios from 'axios';
+import AuthContext from '../../components/AuthContext';
 
-const Member = ({setCartTotalDep}) => {
+const Member = ({ setCartTotalDep }) => {
   // 過場動畫
-  const { spinner, setLoading } = useSpinner(4000);
+  // const { spinner, setLoading } = useSpinner(4000);
+  // useEffect(() => {
+  //   setLoading(true);
+  // }, []);
+
+  const { auth, token, logout, auths, grade, setAuths } = useContext(AuthContext);
+
+  const queryParams = new URLSearchParams(window.location.search);
+  const id = queryParams.get('id');
+
+  const getGoogleUser = () => {
+    axios
+      .get(`http://localhost:3000/google/googleLogin?id=${id}`)
+      .then((res) => {
+        if (res) {
+          console.log(123213, res.data);
+          localStorage.setItem('user_info', JSON.stringify(res.data.info));
+          localStorage.setItem('user_token', res.data.token);
+          // 整個網站判斷有沒有登入
+          setAuths({ ...auths, token: res.data.token, auth: true });
+        }
+      });
+  };
+
   useEffect(() => {
-    setLoading(true);
+    if (auth) {
+      return;
+    }
+    getGoogleUser();
   }, []);
 
   const allRecordRef = useRef(null);

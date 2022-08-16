@@ -25,6 +25,7 @@ const Carts = (props) => {
     setProductTotalQty,
     setLessonTotalQty,
     setCustomTotalQty,
+    cartTotalDep,
   } = props;
   // set nevigate hook
   const navigate = useNavigate();
@@ -52,6 +53,7 @@ const Carts = (props) => {
     if (!auth) {
       alert('請先登入會員');
       navigate('/login');
+      return;
     }
     axios
       .get('http://localhost:3000/member/memberself', {
@@ -86,7 +88,7 @@ const Carts = (props) => {
             );
           });
       });
-  }, [productDep]);
+  }, [productDep, cartTotalDep]);
   // 獲取購物車內custom的資料
   useEffect(() => {
     axios
@@ -164,8 +166,15 @@ const Carts = (props) => {
   const bgRef = useRef(null);
   const mdTabRef = useRef(null);
   const cartItemRef = useRef(null);
-  let i = gsap.timeline();
+  // gsap setting
   useEffect(() => {
+    gsap.from(cartItemRef.current, {
+      display: 'none',
+      opacity: 0,
+      duration: 0.5,
+      delay: 1,
+      ease: 'expo',
+    });
     gsap.from(checkoutRef.current, {
       opacity: 0.6,
       x: 200,
@@ -179,7 +188,6 @@ const Carts = (props) => {
       duration: 2,
       ease: 'expo',
     });
-    gsap.from(cartItemRef.current, { opacity: 0, duration: 4, ease: 'expo' });
   }, []);
   return (
     <>
