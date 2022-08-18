@@ -5,35 +5,20 @@
 ## 本人前端
 src/App (member資料 Context)
 
-src/components/ScrollBox (全)
+src/components/ScrollBox、useSpinner、AuthContext、AuthContextProvider (全)
 
-src/components/useSpinner (全)
-
-src/components/AuthContext (全)
-
-src/components/AuthContextProvider (全)
-
-src/components/Navbar (會員/管理員狀態變動與token fetch使用範例)
+src/components/Navbar (會員/管理員狀態變動與token axios使用範例)
 
 src/components/SideBar (會員/管理員狀態變動)
 
-src/pages/Login (全)
+src/pages/Login、Admin、Member (全)
 
-src/pages/Admin (全)
-
-src/pages/Member (全)
 ## 本人後端
 index.js (middleware token socket.io server)
 
-modules/upload-avatar (全)
+modules/upload-avatar、upload-chatImg (全)
 
-modules/upload-chatImg (全)
-
-routes/admin (全)
-
-routes/member (全)
-
-routes/google (全)
+routes/admin、member、google (全)
 
 ## 使用語言 & 技術
 
