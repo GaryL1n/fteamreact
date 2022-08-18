@@ -37,7 +37,7 @@ routes/google (全)
 
 ## 使用語言 & 技術
 
- 前端 : React、CSS、Sass、Bootstrap、MUI、GSAP、axios、echarts-for-react、swiper、socket.io-client、uuid
+ 前端 : React、CSS、Sass、Bootstrap、MUI、GSAP、axios、echarts-for-react、swiper、socket.io-client、uuid、emoji-mart
 
    useState、useEffect、useContext、useRef、useMemo、useNavigate、useParams
 
@@ -108,7 +108,7 @@ Navbar若為會員登入狀態 顯示會員頭貼及暱稱
 
 聊天室為即時更新(socket.io)，進入聊天室或有新訊息時scrollBar將自動置底，也可往上查看過往聊天紀錄(從資料庫讀取)
 
-聊天室除了能傳一般訊息以外，也能傳超連結或圖檔(jpg、gif、png)
+聊天室除了能傳一般訊息以外，也能傳emoji、超連結或圖檔(jpg、gif、png)
 
 ### --管理員進行會員管理--
 
