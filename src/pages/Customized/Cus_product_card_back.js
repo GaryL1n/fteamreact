@@ -6,8 +6,9 @@ import Cus_tab from './cus_component/Cus_tab';
 import './Cus_product_card_back.scss';
 import { Scale } from 'chart.js';
 import axios from 'axios';
-import { gsap } from "gsap";
-import {alert} from '../Carts/Nathan_components/AlertComponent'
+import { gsap } from 'gsap';
+import { alert } from '../Carts/Nathan_components/AlertComponent';
+import {SpaceAlert}from './cus_component/SpaceAlertComponent'
 
 function Cus_product_card_back(props) {
   const navigate = useNavigate();
@@ -24,6 +25,11 @@ function Cus_product_card_back(props) {
   const [isClick, setIsClick] = useState(false);
   const [price, setPrice] = useState(0);
   const [originalPrice, setOriginalPrice] = useState(0);
+
+  const [bgimgdep, setBgimgdep] = useState(0);
+
+  const flowRef = useRef();
+  const flow2Ref = useRef();
 
   const bgRef = useRef();
   const bgpicRef = useRef();
@@ -120,11 +126,11 @@ function Cus_product_card_back(props) {
         back_color: bgcolor,
         back_text: text,
         back_sticker: stickerName,
-        price:price
+        price: price,
       });
       navigate('/customized/create/confirm');
     } else {
-      alert('please confirm your picture');
+      SpaceAlert('please confirm your picture');
     }
   };
 
@@ -142,10 +148,27 @@ function Cus_product_card_back(props) {
     setIsClick(true);
   }
 
+  //前方效果//
+  useEffect(() => {
+    gsap.from(flowRef.current, { scale: 0,rotation:-45, duration: 0.5 });
+    gsap.from(flow2Ref.current, { scale: 0, rotation:45,duration: 0.5 });
+  }, [bgimgName]);
+
   return (
     <div className="w-100 vh-100 d-flex justify-content-end align-items-end">
+      <div ref={flowRef} className="cus_flow">
+        <img src={`/imgs/Customized/flow/${bgimgName}.png`} alt="" />
+      </div>
+      <div ref={flow2Ref} className="cus_flow2">
+        <img src={`/imgs/Customized/flow/${bgimgName}.png`} alt="" />
+      </div>
       <div className="cus_matte w-100 h-100 ovweflow-hidden">
-        <img src="/imgs/Customized/cus_bg_07.jpg" className="cus-bg" alt="" ref={bgRef}/>
+        <img
+          src="/imgs/Customized/cus_bg_07.jpg"
+          className="cus-bg"
+          alt=""
+          ref={bgRef}
+        />
       </div>
 
       <div className="work-area col-12 col-md-10 p-0 overflow-hidden">
@@ -180,7 +203,10 @@ function Cus_product_card_back(props) {
             <div className="cus_card flex-column">
               <div className="cus_product_card" ref={cardRef}>
                 <div className="d-flex"></div>
-                {bgimgName}{patternName}{stickerName}{text}
+                {/* {bgimgName}
+                {patternName}
+                {stickerName}
+                {text} */}
 
                 <Cus_tab
                   bgcolor={bgcolor}
@@ -193,6 +219,7 @@ function Cus_product_card_back(props) {
                   setText={setText}
                   setPrice={setPrice}
                   originalPrice={originalPrice}
+                  setBgimgdep={setBgimgdep}
                 />
 
                 <button

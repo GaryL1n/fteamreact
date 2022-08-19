@@ -1,3 +1,7 @@
+.ehartsBTNBOX {
+    height: 20%;
+}
+
 .ehartsBTN {
     height: 35%;
     font-size: 1.5rem;
@@ -13,4 +17,11 @@
     color: var(--main);
     transform: translateX(-2px) translateY(-2px);
     box-shadow: 4px 4px 0px 0px #047d92;
+}
+
+// 筆電版
+@media screen and (max-width: 1400px) {
+    .ehartsBTNBOX {
+        height: 25%;
+    }
 }

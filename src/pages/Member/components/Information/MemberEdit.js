@@ -15,7 +15,7 @@ const MemberEdit = ({
 }) => {
   const { token, auths, setAuths, logout } = useContext(AuthContext);
   // 記錄表單每個欄位輸入值
-  const [fields, setFields] = useState({
+  const [material, setMaterial] = useState({
     account: '',
     name: '',
     nickname: '',
@@ -40,7 +40,7 @@ const MemberEdit = ({
     if (member.length === 0) {
       return;
     }
-    setFields({
+    setMaterial({
       account: mem_account,
       name: mem_name,
       nickname: mem_nickname,
@@ -59,12 +59,12 @@ const MemberEdit = ({
       address: mem_address,
     });
   }, [member]);
-  // onChange存值到fields
-  const handleFieldsChange = (e) => {
-    setFields({ ...fields, [e.target.name]: e.target.value });
+  // onChange存值到material
+  const handleMaterialChange = (e) => {
+    setMaterial({ ...material, [e.target.name]: e.target.value });
   };
   // 記錄表單每個欄位有錯誤時的訊息
-  const [fieldErrors, setFieldErrors] = useState({
+  const [fieldErrors, setMaterialErrors] = useState({
     name: '',
     account: '',
     email: '',
@@ -83,14 +83,14 @@ const MemberEdit = ({
     e.preventDefault();
 
     // 填入錯誤訊息
-    setFieldErrors({
+    setMaterialErrors({
       ...fieldErrors,
       [e.target.name]: e.target.validationMessage,
     });
   };
   // 表單更動時用於讓使用者清空某個正在修改的欄位的錯誤訊息
   const handleFormChange = (e) => {
-    setFieldErrors({
+    setMaterialErrors({
       ...fieldErrors,
       [e.target.name]: '',
     });
@@ -101,9 +101,9 @@ const MemberEdit = ({
     e.preventDefault();
 
     // 作更多驗証
-    if (fields.name.length < 2) {
+    if (material.name.length < 2) {
       // 填入錯誤訊息
-      setFieldErrors({
+      setMaterialErrors({
         ...fieldErrors,
         name: '最少兩個字',
       });
@@ -112,7 +112,7 @@ const MemberEdit = ({
     }
 
     await axios
-      .put('http://localhost:3000/member/edit', fields, {
+      .put('http://localhost:3000/member/edit', material, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -189,15 +189,15 @@ const MemberEdit = ({
               name="account"
               value="Google User"
               disabled
-              onChange={handleFieldsChange}
+              onChange={handleMaterialChange}
             />
           ) : (
             <input
               type="text"
               name="account"
               required
-              value={fields.account}
-              onChange={handleFieldsChange}
+              value={material.account}
+              onChange={handleMaterialChange}
             />
           )}
           <p>{fieldErrors.account}</p>
@@ -206,30 +206,30 @@ const MemberEdit = ({
             type="text"
             name="name"
             required
-            value={fields.name}
-            onChange={handleFieldsChange}
+            value={material.name}
+            onChange={handleMaterialChange}
           />
           <p>{fieldErrors.name}</p>
           <h5>Nickname</h5>
           <input
             type="text"
             name="nickname"
-            value={fields.nickname}
-            onChange={handleFieldsChange}
+            value={material.nickname}
+            onChange={handleMaterialChange}
           />
           <h5>Birthday</h5>
           <input
             type="date"
             name="birthday"
-            value={fields.birthday}
-            onChange={handleFieldsChange}
+            value={material.birthday}
+            onChange={handleMaterialChange}
           />
           <h5>Mobile</h5>
           <input
             type="namber"
             name="mobile"
-            value={fields.mobile}
-            onChange={handleFieldsChange}
+            value={material.mobile}
+            onChange={handleMaterialChange}
           />
           <p>{fieldErrors.mobile}</p>
           <h5>Email</h5>
@@ -239,16 +239,16 @@ const MemberEdit = ({
               name="email"
               required
               disabled
-              value={fields.email}
-              onChange={handleFieldsChange}
+              value={material.email}
+              onChange={handleMaterialChange}
             />
           ) : (
             <input
               type="email"
               name="email"
               required
-              value={fields.email}
-              onChange={handleFieldsChange}
+              value={material.email}
+              onChange={handleMaterialChange}
             />
           )}
           <p>{fieldErrors.email}</p>
@@ -256,8 +256,8 @@ const MemberEdit = ({
           <textarea
             type="text"
             name="address"
-            value={fields.address}
-            onChange={handleFieldsChange}
+            value={material.address}
+            onChange={handleMaterialChange}
           />
           <div className="d-flex justify-content-around">
             <button
@@ -265,7 +265,7 @@ const MemberEdit = ({
                 // 阻擋按鈕預設行為
                 e.preventDefault();
                 // 如未更改資料 把表單恢復成原來的值
-                setFields(leaveForm);
+                setMaterial(leaveForm);
                 // 把隱藏的大頭貼區塊恢復顯示
                 setAvatarFromNone('');
                 // 個人資料區塊從90%設回75%
@@ -273,7 +273,7 @@ const MemberEdit = ({
                 // 移動到顯示個人資料
                 setmoveTrain('translateY(-0%)');
                 // 離開這個表單時把錯誤訊息清空
-                setFieldErrors(leaveFormError);
+                setMaterialErrors(leaveFormError);
               }}
             >
               Back

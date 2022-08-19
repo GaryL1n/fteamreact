@@ -13,17 +13,17 @@ const AvatarForm = ({ member }) => {
   const { token, auths, setAuths } = useContext(AuthContext);
 
   // 取得頭貼input
-  const registerAvatarRef = useRef(null);
+  const AvatarRef = useRef(null);
 
   // 點擊頭貼 觸發頭貼input
   function clickAvatar() {
-    registerAvatarRef.current.click();
+    AvatarRef.current.click();
   }
 
   // 記錄頭貼檔案名稱
-  const [field, setField] = useState('');
+  const [material, setMaterial] = useState('');
   useEffect(() => {
-    setField(member.mem_avatar);
+    setMaterial(member.mem_avatar);
   }, [member]);
 
   // 頭貼input值有變換時
@@ -35,7 +35,7 @@ const AvatarForm = ({ member }) => {
       data
     );
     const avatarURL = 'http://localhost:3000/avatar/' + response.data.filename;
-    setField(avatarURL);
+    setMaterial(avatarURL);
   }
 
   // 表單點擊送出後
@@ -44,7 +44,7 @@ const AvatarForm = ({ member }) => {
     e.preventDefault();
     const response = await axios.put(
       'http://localhost:3000/member/avatar',
-      { avatar: field },
+      { avatar: material },
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -78,13 +78,13 @@ const AvatarForm = ({ member }) => {
             <input
               type="file"
               name="avatar"
-              ref={registerAvatarRef}
+              ref={AvatarRef}
               onChange={uploadAvatar}
               hidden
             />
             <figure className="d-flex justify-content-center h-70">
               <img
-                src={field}
+                src={material}
                 alt=""
                 onClick={clickAvatar}
                 // 大頭貼更換成功動畫效果

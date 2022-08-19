@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import HomeSwiper from './HomeSwiper';
 
-const Home = () => {
+const Home = ({ setHomeBg }) => {
+  useEffect(() => {
+    setHomeBg(true);
+    return () => {
+      setHomeBg(false);
+    };
+  }, []);
   return (
     <>
       <div className="home-bg w-100 vh-100 d-flex justify-content-end align-items-end">

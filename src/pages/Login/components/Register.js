@@ -14,7 +14,7 @@ const Register = ({
   loginLogoText,
   setLoginLogoText,
   setLogoMove,
-  logoMove
+  logoMove,
 }) => {
   // 頁面導向
   const navigate = useNavigate();
@@ -40,11 +40,11 @@ const Register = ({
     );
     console.log(response.data.filename);
     setMemberAvatar(response.data.filename);
-    setFields({ ...fields, avatar: response.data.filename });
+    setMaterial({ ...material, avatar: response.data.filename });
   }
 
   // 記錄表單每個欄位輸入值
-  const [fields, setFields] = useState({
+  const [material, setMaterial] = useState({
     avatar: '',
     name: '',
     account: '',
@@ -63,13 +63,13 @@ const Register = ({
     email: '',
   };
 
-  // onChange存值到fields
-  const handleFieldsChange = (e) => {
-    setFields({ ...fields, [e.target.name]: e.target.value });
+  // onChange存值到material
+  const handleMaterialChange = (e) => {
+    setMaterial({ ...material, [e.target.name]: e.target.value });
   };
 
   // 記錄表單每個欄位有錯誤時的訊息
-  const [fieldErrors, setFieldErrors] = useState({
+  const [materialErrors, setMaterialErrors] = useState({
     name: '',
     account: '',
     password: '',
@@ -86,8 +86,8 @@ const Register = ({
     // console.log(e.target.validationMessage)
 
     // 填入錯誤訊息
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: e.target.validationMessage,
     });
   };
@@ -98,20 +98,20 @@ const Register = ({
     e.preventDefault();
 
     // 作更多驗証
-    if (fields.name.length < 2) {
+    if (material.name.length < 2) {
       // 填入錯誤訊息
-      setFieldErrors({
-        ...fieldErrors,
+      setMaterialErrors({
+        ...materialErrors,
         name: '最少兩個字',
       });
 
       return;
     }
 
-    if (fields.password !== fields.confirmPassword) {
+    if (material.password !== material.confirmPassword) {
       // 填入錯誤訊息
-      setFieldErrors({
-        ...fieldErrors,
+      setMaterialErrors({
+        ...materialErrors,
         password: '密碼與確認密碼不符',
         confirmPassword: '密碼與確認密碼不符',
       });
@@ -121,7 +121,7 @@ const Register = ({
 
     const response = await axios.post(
       'http://localhost:3000/member/register',
-      fields
+      material
     );
 
     if (response.data.success === true) {
@@ -129,7 +129,7 @@ const Register = ({
       // 呈現驗證頁面
       setVerify(true);
       // 清空欄位
-      // setFields({ ...endRegister });
+      // setMaterial({ ...endRegister });
       // 頭貼狀態設回空字串
       setMemberAvatar('');
       // 卡片翻回去
@@ -142,31 +142,43 @@ const Register = ({
 
   // 表單更動時用於讓使用者清空某個正在修改的欄位的錯誤訊息
   const handleFormChange = (e) => {
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: '',
     });
   };
 
   // 點擊input就消除錯誤訊息
   const clickErrorText = (e) => {
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: '',
     });
   };
   return (
     <>
       <div className={`h-100 w-100 Register LoginBack ${registerNone}`}>
-        <div className="w-100 LoginLogoRWDbox">
+        <div
+          className="w-100 LoginLogoRWDbox"
+          onClick={() => {
+            setMaterial({
+              avatar: '',
+              name: '芎道遂宮圓',
+              account: 'zzz',
+              password: 'zzz',
+              confirmPassword: 'zzz',
+              email: 'garylin0969@gmail.com',
+            });
+          }}
+        >
           <LoginLogo loginLogoText={loginLogoText} logoMove={logoMove} />
         </div>
         {verify ? (
           <Verify
-            fields={fields}
+            material={material}
             setVerify={setVerify}
             endRegister={endRegister}
-            setFields={setFields}
+            setMaterial={setMaterial}
             setLoginCard={setLoginCard}
             setLoginLogoText={setLoginLogoText}
             setLogoMove={setLogoMove}
@@ -209,21 +221,21 @@ const Register = ({
                   type="text"
                   name="name"
                   required // 必填欄位
-                  value={fields.name}
-                  onChange={handleFieldsChange}
+                  value={material.name}
+                  onChange={handleMaterialChange}
                   onClick={clickErrorText}
                 />
-                <p>{fieldErrors.name}</p>
+                <p>{materialErrors.name}</p>
                 <h3>Account</h3>
                 <input
                   type="text"
                   name="account"
                   required
-                  value={fields.account}
-                  onChange={handleFieldsChange}
+                  value={material.account}
+                  onChange={handleMaterialChange}
                   onClick={clickErrorText}
                 />
-                <p>{fieldErrors.account}</p>
+                <p>{materialErrors.account}</p>
               </div>
               <div className="col-6">
                 <h3>Password</h3>
@@ -231,23 +243,23 @@ const Register = ({
                   type="password"
                   name="password"
                   required
-                  value={fields.password}
-                  onChange={handleFieldsChange}
+                  value={material.password}
+                  onChange={handleMaterialChange}
                   onClick={clickErrorText}
                   autoComplete="on"
                 />
-                <p>{fieldErrors.password}</p>
-                <h3>Check</h3>
+                <p>{materialErrors.password}</p>
+                <h3>Re-enter Password</h3>
                 <input
                   type="password"
                   name="confirmPassword"
                   required
-                  value={fields.confirmPassword}
-                  onChange={handleFieldsChange}
+                  value={material.confirmPassword}
+                  onChange={handleMaterialChange}
                   onClick={clickErrorText}
                   autoComplete="on"
                 />
-                <p>{fieldErrors.confirmPassword}</p>
+                <p>{materialErrors.confirmPassword}</p>
               </div>
             </div>
             <h3>Email</h3>
@@ -256,11 +268,11 @@ const Register = ({
               name="email"
               className="w-40"
               required
-              value={fields.email}
-              onChange={handleFieldsChange}
+              value={material.email}
+              onChange={handleMaterialChange}
               onClick={clickErrorText}
             />
-            <p>{fieldErrors.email}</p>
+            <p>{materialErrors.email}</p>
             <div className="h-24 w-100 d-flex justify-content-around">
               <button
                 className="buttonChangePage"

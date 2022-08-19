@@ -1,7 +1,3 @@
-* {
-    // outline: 1px solid red;
-}
-
 .LoginMember {
     background: linear-gradient(to right, #2D2D2D 0%, #2D2D2D 50%, #555555 100%);
 
@@ -69,6 +65,22 @@
         background-color: black;
         color: var(--main);
         border: 1px solid var(--main);
+    }
+}
+
+// 筆電版
+@media screen and (max-width: 1400px) {
+    .LoginMember {
+        background: linear-gradient(to right, #2D2D2D 0%, #2D2D2D 50%, #555555 100%);
+
+        form {
+            height: 65%;
+            padding-top: 0%;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
     }
 }
 

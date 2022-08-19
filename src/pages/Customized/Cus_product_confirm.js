@@ -3,10 +3,15 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../components/AuthContext';
 
+
 import { red } from '@mui/material/colors';
 import {alert} from '../Carts/Nathan_components/AlertComponent'
+import { AddToCartalert } from './cus_component/AddToCartComponent';
 import './Cus_product_confirm.scss';
 import { gsap } from "gsap";
+import { Player } from "@lottiefiles/react-lottie-player";
+
+
 
 function Cus_product_confirm(props) {
   const { lastInsertID, setLastInsertID, setCartTotalDep } = props;
@@ -38,10 +43,10 @@ function Cus_product_confirm(props) {
           })
           .then((res) => {
             if (res.data.success) {
-              alert('加入成功');
+              AddToCartalert('加入成功');
               setCartTotalDep((prev) => prev + 1);
             } else {
-              alert('商品已存在購物車');
+              AddToCartalert('商品已存在購物車');
             }
           });
       });
@@ -59,30 +64,36 @@ function Cus_product_confirm(props) {
 
   useEffect(() => {
     gsap.from(titleRef.current, { opacity: 0,x:50,duration:1 });
-    gsap.from(productRef.current, { opacity: 0,x:-50,duration:2});
-    gsap.from(list1Ref.current, { opacity: 0,x:20,duration:2});
-    gsap.from(list2Ref.current, { opacity: 0,x:30, duration:2});
-    gsap.from(list3Ref.current, { opacity: 0,x:40,duration:2});
-    gsap.from(list4Ref.current, { opacity: 0,x:50, duration:2});
-    gsap.from(list5Ref.current, { opacity: 0,x:60, duration:2});
+    gsap.from(productRef.current, { opacity: 0,x:-50, deley:.2,duration:2});
+    gsap.from(list1Ref.current, { opacity: 0,x:20,deley:.4,duration:2});
+    gsap.from(list2Ref.current, { opacity: 0,x:30,deley:.6, duration:2});
+    gsap.from(list3Ref.current, { opacity: 0,x:40,deley:.8,duration:2});
+    gsap.from(list4Ref.current, { opacity: 0,x:50,deley:1, duration:2});
+    gsap.from(list5Ref.current, { opacity: 0,x:60,deley:1.2, duration:2});
   },[]);
 
   return (
     <>
       <div className="w-100 vh-100 d-flex justify-content-end align-items-end">
-        <div className="work-area col-12 col-md-10 p-0">
+        <div className="work-area col-12 col-md-10 p-0 overflow-hidden">
           <div className="d-flex flex-wrap px-5">
             <div className="left col-12 col-sm-6 p-0 pe-sm-5 ">
               <h2 ref={titleRef}>
                 CUSTOM PRODUCT <br /> DETAIE
               </h2>
               <p ref={titleRef}>Created at {cusData.created_date} </p>
+              
               <div className="cusdetail-pic col-12 col-sm-6" ref={productRef}>
+             
                 <img
                   src={`http://localhost:3000/custom/${cusData.back_img}`}
                   className="img-fluid"
                 />
               </div>
+
+              <div>
+        
+      </div>
 
               <div className="attribuies" ref={list1Ref}>
                 <p>Project Name</p>

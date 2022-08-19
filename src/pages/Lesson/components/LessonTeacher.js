@@ -1,11 +1,12 @@
 import '../style/LessonTeacher.scss';
+import LessonVideoAlert from './LessonVideoAlert';
 
 const LessonTeacher = (props) => {
   const { teacherDisplay } = props;
-  // console.log('LessonTeacher', teacherDisplay);
+  console.log('LessonTeacher', teacherDisplay);
   const displayTable = teacherDisplay.map((v, i) => {
     return (
-      <div key={v.sid} className="col-sm-4   cooler_teacher_card   border ">
+      <div key={v.sid} className="col-sm-4 cooler_teacher_card border">
         <div className="h-55 ">
           <div className="cooler_teacher_log h-100 d-flex">
             <div className="cooler_teacher_card_head_circle w-55 ">
@@ -15,7 +16,7 @@ const LessonTeacher = (props) => {
                   src={`/imgs/lesson_imgs/${v.teacher_head}`}
                   alt=""
                 />
-                {/* <div className="cooler_teacher_card_head"></div> */}
+                <LessonVideoAlert teacherUrl={v.teacher_url} />
               </div>
             </div>
             <div className=" w-45 cooler_teacher_card_right ">

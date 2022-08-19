@@ -436,13 +436,17 @@ export default function OffcanvasPage(props) {
                           onChange={(e) => {
                             setDelivery(e.target.value);
                           }}
-                          className="focus-none bg-transparent border-0 text-gray fs-6"
+                          className="focus-none text-gray bg-transparent border-0 fs-6"
                         >
                           <option value="" disabled>
                             配送方式
                           </option>
-                          <option value="toHome">宅配到府</option>
-                          <option value="pickSelf">超商取貨</option>
+                          <option className="text-black" value="toHome">
+                            宅配到府
+                          </option>
+                          <option className="text-black" value="pickSelf">
+                            超商取貨
+                          </option>
                         </select>
                       </div>
                       {/* 同會員資料 */}
@@ -495,7 +499,7 @@ export default function OffcanvasPage(props) {
                         </div>
                         <div className="relative">
                           <input
-                            className="border-bottom w-100 focus-none text-gray bg-transparent checkout-input"
+                            className="border-bottom w-100 text-gray bg-transparent checkout-input"
                             name="mobile"
                             pattern="09\d{2}(\d{6}|-\d{3}-\d{3})"
                             value={toHomeForm.mobile}
@@ -520,7 +524,7 @@ export default function OffcanvasPage(props) {
                         </div>
                         <div className="relative">
                           <input
-                            className=" border-bottom w-100 focus-none text-gray bg-transparent checkout-input"
+                            className=" border-bottom w-100 text-gray bg-transparent checkout-input"
                             name="email"
                             value={toHomeForm.email}
                             type="text"
@@ -548,7 +552,7 @@ export default function OffcanvasPage(props) {
                         />
                         <div className="relative">
                           <input
-                            className=" border-bottom w-100 focus-none text-gray bg-transparent checkout-input"
+                            className=" border-bottom w-100 text-gray bg-transparent checkout-input"
                             name="fullAddress"
                             value={toHomeForm.fullAddress}
                             type="text"

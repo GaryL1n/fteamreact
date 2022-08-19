@@ -48,6 +48,7 @@ function App() {
 
   // for product background-image
   const [productBg, setProductBg] = useState(false);
+  const [homeBg, setHomeBg] = useState(false);
   return (
     <Router>
       {/* 裡面包含ConText(會員登入判斷)及登出涵式 */}
@@ -56,6 +57,9 @@ function App() {
         <MemberContext.Provider value={{ member, setMember }}>
           {productBg ? (
             <div className="position-fixed vw-100 vh-100 product-bg"></div>
+          ) : null}
+          {homeBg ? (
+            <div className="position-fixed vw-100 vh-100 homeSelf-bg"></div>
           ) : null}
           <div className="container-fluid vh-100 fteam-wrap">
             <div className="row h-100">
@@ -80,7 +84,7 @@ function App() {
                   {/* <div className="col-10 h-100 p-0 "></div>有要加sidebar的 用col-10 這段 沒有的用 col-12 */}
 
                   <Routes>
-                    <Route path="/" element={<Home />} />
+                    <Route path="/" element={<Home setHomeBg={setHomeBg} />} />
                     <Route path="/login" element={<Login />} />
                     <Route
                       path="/member"

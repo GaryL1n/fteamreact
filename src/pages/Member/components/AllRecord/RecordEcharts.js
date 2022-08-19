@@ -150,7 +150,7 @@ const RecordEcharts = () => {
       <div className="h-75">
         <ReactEcharts option={option} style={{ height: '100%', top: '10%' }} />
       </div>
-      <div className="h-20 d-flex justify-content-center align-items-center">
+      <div className="ehartsBTNBOX d-flex justify-content-center align-items-center">
         <button
           className="ehartsBTN"
           onClick={(e) => {

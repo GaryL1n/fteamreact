@@ -21,10 +21,7 @@ const OrderCard = (props) => {
         <div className="w-100 h-45 d-flex">
           <div className="col-6 h-100 d-flex justify-content-start align-items-end py-2">
             {/* created_at */}
-            訂購日 ：
-            {singleOrder.order_date.slice(0, 10) +
-              ' ' +
-              singleOrder.order_date.slice(11, 16)}
+            訂購日 ：{singleOrder.order_date.slice(0, 10)}
           </div>
           <div className="col-6 h-100 d-flex justify-content-end align-items-end py-2 fw-bold">
             {/* oreder_number */}

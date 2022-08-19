@@ -12,6 +12,8 @@ import { v4 as uuidv4 } from 'uuid';
 import AuthContext from '../../../../components/AuthContext';
 import { MemberContext } from '../../../../App';
 import '../../styles/Chat.scss';
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 
 const Chat = ({ selectItem }) => {
   // 拿到token 存資料用
@@ -181,6 +183,14 @@ const Chat = ({ selectItem }) => {
         });
       });
   }
+
+  // 開關emoji盒子
+  const [emojiBox, setEmojiBox] = useState(false);
+  // 傳入emoji訊息
+  const emojiClick = (e) => {
+    let { message } = messageState;
+    setMessageState({ message: (message += e.native) });
+  };
 
   // 判斷對話中有沒有含http 有的話包成連結 沒有的話直接顯示
   // {[message].filter((v, i) => v.includes('http')).length !== 0 ? (
@@ -405,7 +415,27 @@ const Chat = ({ selectItem }) => {
           >
             <path d="M384 352v64c0 17.67-14.33 32-32 32H96c-17.67 0-32-14.33-32-32v-64c0-17.67-14.33-32-32-32s-32 14.33-32 32v64c0 53.02 42.98 96 96 96h256c53.02 0 96-42.98 96-96v-64c0-17.67-14.33-32-32-32S384 334.3 384 352zM201.4 9.375l-128 128c-12.51 12.51-12.49 32.76 0 45.25c12.5 12.5 32.75 12.5 45.25 0L192 109.3V320c0 17.69 14.31 32 32 32s32-14.31 32-32V109.3l73.38 73.38c12.5 12.5 32.75 12.5 45.25 0s12.5-32.75 0-45.25l-128-128C234.1-3.125 213.9-3.125 201.4 9.375z" />
           </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            className="cursorpointer"
+            onClick={() => {
+              setEmojiBox(!emojiBox);
+            }}
+          >
+            <path d="M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256.3 331.8C208.9 331.8 164.1 324.9 124.5 312.8C112.2 309 100.2 319.7 105.2 331.5C130.1 390.6 188.4 432 256.3 432C324.2 432 382.4 390.6 407.4 331.5C412.4 319.7 400.4 309 388.1 312.8C348.4 324.9 303.7 331.8 256.3 331.8H256.3zM176.4 176C158.7 176 144.4 190.3 144.4 208C144.4 225.7 158.7 240 176.4 240C194 240 208.4 225.7 208.4 208C208.4 190.3 194 176 176.4 176zM336.4 240C354 240 368.4 225.7 368.4 208C368.4 190.3 354 176 336.4 176C318.7 176 304.4 190.3 304.4 208C304.4 225.7 318.7 240 336.4 240z" />
+          </svg>
         </form>
+        {/* {emojiBox ? (
+          <div className="emojiBox">
+            <Picker onEmojiSelect={emojiClick} />
+          </div>
+        ) : (
+          ''
+        )} */}
+        <div className={emojiBox ? 'emojiBox' : 'd-none'}>
+          <Picker emojiSize={24} onEmojiSelect={emojiClick} />
+        </div>
       </div>
     </div>
   );

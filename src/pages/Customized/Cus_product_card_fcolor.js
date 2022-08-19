@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 
 function Cus_product_card_fcolor(props) {
   const { lastInsertID, setLastInsertID } = props;
-  const [frontcolor, setFrontcolor] = useState('#E9573F');
+  const [frontcolor, setFrontcolor] = useState('#D9D9D9');
   const [originalPrice, setOriginalPrice] = useState(0);
   const [price, setPrice] = useState(0);
 

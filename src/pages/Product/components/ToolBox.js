@@ -7,9 +7,9 @@ const ToolBox = (props) => {
 
   return (
     <>
-      <div className="row toolbox p-0 m-0">
-        <div className="col-10 d-flex justify-content-center align-items-center ">
-          <div className="col-4">
+      <div className="toolbox d-flex justify-content-center p-0 m-0">
+        <div className="col-10 d-flex justify-content-center align-items-center toolBoxRwd">
+          <div className="col-4 toolBoxItemRwd">
             <ul>
               {menuItems.map((v, i) => {
                 return (

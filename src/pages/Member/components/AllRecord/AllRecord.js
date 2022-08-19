@@ -10,10 +10,10 @@ import { gsap } from 'gsap';
 const AllRecord = ({ setCartTotalDep }) => {
   const [selectItem, setSelectItem] = useState('SAVED');
   let moveTrain = 'translateX(0%)';
-  if (selectItem === 'RECORD') {
+  if (selectItem === 'PURCHASED') {
     moveTrain = 'translateX(-25%)';
   }
-  if (selectItem === 'MY LESSON') {
+  if (selectItem === 'LESSONS') {
     moveTrain = 'translateX(-50%)';
   }
   if (selectItem === 'CHAT') {

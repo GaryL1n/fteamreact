@@ -55,6 +55,22 @@
     }
 }
 
+// 筆電版
+@media screen and (max-width: 1400px) {
+    .favoriteCard {
+        p {
+            font-size: .8rem;
+        }
+    }
+
+    .favoriteCard:hover {
+        p {
+            font-weight: 600;
+            transform: skew(-10deg, 0deg);
+        }
+    }
+}
+
 // 手機版
 @media screen and (max-width: 1200px) {
     .favoriteCard {

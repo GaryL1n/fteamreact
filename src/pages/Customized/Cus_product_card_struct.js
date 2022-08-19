@@ -77,8 +77,30 @@ function Cus_product_card_struct(props) {
   },[]);
   return (
     <div className="w-100 vh-100 d-flex justify-content-end align-items-end">
-      <div className="cus_matte w-100 h-100 ovweflow-hidden">
-        <img src="/imgs/Customized/cus_bg_07.jpg" className="cus-bg " alt="" ref={bgRef}/>
+      <div className=" w-100 h-100 ovweflow-hidden">
+      <div className="cus_matte w-100 h-100 ovweflow-hidden  ">
+        <div
+          className="bg-train"
+          ref={bgRef}
+          style={{
+                      top:
+                        material === 'black'
+                          ? '-2800px'
+                          : material === 'iron'
+                          ? '-1400px'
+                          : '0px',
+                    }}
+          
+        >
+          <img src="/imgs/Customized/cus_bg_14.jpg" className="cus-bg" />
+          <img src="/imgs/Customized/cus_bg_13.jpg" className="cus-bg" />
+          <img src="/imgs/Customized/cus_bg_12.jpg" className="cus-bg" />
+         
+        </div>
+
+    
+      </div>
+      
         
       </div>
 
@@ -139,7 +161,7 @@ function Cus_product_card_struct(props) {
               <div className="cus_product_card" ref={cardRef}>
                 <h3 className="text-black">Choose Your Carrier</h3>
 
-                {material}
+                {/* {material} */}
                 <div className="carrier-select-control">
                   <label className="carrier-select">
                     <input

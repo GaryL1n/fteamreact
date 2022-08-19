@@ -1,19 +1,30 @@
-import React,{useContext} from 'react';
+import React,{useContext,useRef,useEffect} from 'react';
 import './Customized.scss';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../components/AuthContext';
 import { useNavigate } from 'react-router-dom';
-
+import { gsap } from 'gsap';
 
 const Customized = () => {
   const { auth, token } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const bgRef = useRef();
+  const bgpicRef = useRef();
+  const cardRef = useRef();
+
+  useEffect(() => {
+    gsap.from(bgRef.current, { opacity: 0,x:100,duration:1});
+    gsap.from(bgpicRef.current, { opacity: 0, y:100,duration:2});
+    gsap.from(cardRef.current, { opacity: 0, x:100,duration:3});
+  },[]);
+  
+
   return (
     <>
       <div className="w-100 vh-100 d-flex justify-content-end align-items-end">
         <div className="cus_matte w-100 h-100 ovweflow-hidden">
-          <img src="/imgs/Customized/cus_bg_04.png" className="cus-bg" />
+          <img src="/imgs/Customized/cus_bg_04.png" className="cus-bg" ref={bgRef} />
         </div>
 
         <div className="work-area col-12 col-md-10 p-0 overflow-hidden">
@@ -22,9 +33,10 @@ const Customized = () => {
               <img
                 src="/imgs/Customized/main_board.png"
                 className="cus_board_main"
+                ref={bgpicRef}
               />
             </div>
-            <div className="cus_card">
+            <div className="cus_card" ref={cardRef}>
               <div className="cus_main_card">
                 <h2 className="text-info">Make Your Own Board</h2>
 

@@ -17,7 +17,7 @@ const MuiTabs = ({ selectItem, setSelectItem }) => {
             onChange={handleChange}
           >
             <Tab
-              sx={{ fontSize: '0.7rem'}}
+              sx={{ fontSize: '0.7rem' }}
               disableRipple={true}
               label="SAVED"
               value={'SAVED'}
@@ -25,14 +25,14 @@ const MuiTabs = ({ selectItem, setSelectItem }) => {
             <Tab
               sx={{ fontSize: '0.7rem' }}
               disableRipple={true}
-              label="RECORD"
-              value={'RECORD'}
+              label="PURCHASED"
+              value={'PURCHASED'}
             />
             <Tab
               sx={{ fontSize: '0.7rem' }}
               disableRipple={true}
-              label="MY LESSON"
-              value={'MY LESSON'}
+              label="LESSONS"
+              value={'LESSONS'}
             />
             <Tab
               sx={{ fontSize: '0.7rem' }}

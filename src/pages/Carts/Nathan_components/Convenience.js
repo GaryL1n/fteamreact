@@ -194,12 +194,6 @@ function Convenience(props) {
         <div className="w-100 h-33 d-flex justify-content-between">
           <select
             disabled={toConvenceFrom.convenceStore !== '' ? true : false}
-            style={{
-              color:
-                toConvenceFrom.convenceStore !== ''
-                  ? 'rgb(120, 120, 120)'
-                  : 'rgb(207, 207,207)',
-            }}
             className="w-30 bg-transparent text-gray border-0 focus-none"
             value={convenceCountryInd}
             onChange={(e) => {
@@ -211,12 +205,12 @@ function Convenience(props) {
               setConvenceTownsShipInd(-1);
             }}
           >
-            <option disabled value="-1">
+            <option className="text-black" disabled value="-1">
               選擇縣市
             </option>
             {countryArr.map((v, i) => {
               return (
-                <option key={i} value={i}>
+                <option className="text-black" key={i} value={i}>
                   {v}
                 </option>
               );
@@ -224,12 +218,6 @@ function Convenience(props) {
           </select>
           <select
             disabled={toConvenceFrom.convenceStore !== '' ? true : false}
-            style={{
-              color:
-                toConvenceFrom.convenceStore !== ''
-                  ? 'rgb(120, 120, 120)'
-                  : 'rgb(207, 207,207)',
-            }}
             value={convenceTownsShipInd}
             className="w-30 bg-transparent text-gray border-0 focus-none"
             onChange={(e) => {
@@ -241,22 +229,19 @@ function Convenience(props) {
               });
             }}
           >
-            <option disabled value="-1">
+            <option className="text-black" disabled value="-1">
               選擇區域
             </option>
             {convenceCountryInd > -1 &&
               townshipArr[convenceCountryInd].map((v, i) => {
                 return (
-                  <option key={i} value={i}>
+                  <option className="text-black" key={i} value={i}>
                     {v}
                   </option>
                 );
               })}
           </select>
           <select
-            style={{
-              color: !isDisable ? 'rgb(120, 120, 120)' : 'rgb(207, 207,207)',
-            }}
             disabled={!isDisable}
             defaultValue={-1}
             className="w-30 bg-transparent text-gray border-0 focus-none"
@@ -267,7 +252,7 @@ function Convenience(props) {
               });
             }}
           >
-            <option disabled value={-1}>
+            <option className="text-black" disabled value={-1}>
               選擇門市
             </option>
             {convenceTownsShipInd > -1
@@ -275,7 +260,11 @@ function Convenience(props) {
                 toConvenceFrom.convenceTownship
               ].map((v, i) => {
                 return (
-                  <option key={i} value={v.POIName + '門市'}>
+                  <option
+                    className="text-black"
+                    key={i}
+                    value={v.POIName + '門市'}
+                  >
                     {v.POIName + '門市'}
                   </option>
                 );

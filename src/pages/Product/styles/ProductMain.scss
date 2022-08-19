@@ -346,6 +346,7 @@
 
     .card-brand {
         font-size: 1rem;
+        flex-grow: 1;
         color: gray;
     }
 
@@ -434,4 +435,155 @@
 
 .resetBtn:hover {
     background-color: rgb(40, 39, 39);
+}
+
+// ------------------------ RWD ------------------------------------------
+@media screen and (max-width:600px) {
+    .toolBoxRwd{
+        width: 100%;
+    }
+
+    .toolBoxItemRwd{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        ul{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+       a{
+        font-size: 16px;
+        padding: 5px;
+       }
+    }
+    .filterBox{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .filterBoxRwd{
+        width: 100%;
+        flex-wrap: wrap;
+        margin-right: 60px;
+    }
+
+    .filterBoxItem{
+        margin: 0px 10px;
+        width: 100%;
+    }
+    
+    .filter{
+        width: 100%;
+        display: flex;
+        
+        h5{
+            width: 100%;
+            font-size: 16px;
+            padding: 0;
+            text-align: center;
+        }
+        span{
+           
+           svg{
+            width: 5px;
+           }
+        }
+    }
+    .kevinSearch-btn{
+        display: none;
+    }
+    .kevinSearch-input{
+        display: none;
+    }
+
+    .priceFilter{
+        width: 100%;
+        position: relative;
+    }
+    .colorFilter{
+        width: 100%;
+        position: relative;
+    }
+    .brandFilter{
+        width: 100%;
+        position: relative;
+    }
+    .sortbyFilter{
+        width: 100%;
+        position: relative;
+    }
+
+    .product-list{
+        width: 90%;
+        justify-content: center;
+    
+    }
+
+    .productListRwd{
+        width: 50%;
+    }
+
+    .product-header{
+        width: 85%;
+    }
+
+    .pro-favorites {
+        width: 20px;
+        padding-top: 3px;
+        svg {
+            width: 100%;
+            color: black;
+        }
+    }
+
+    .pro-cart {    
+        width: 20px;
+        svg {
+            width: 100%;
+            color: #0B1013;
+        }
+    }
+    .productImg{
+        width: 85%;
+    }
+
+    .productBody {
+        width: 100%;
+        height: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    
+        .card-name {
+            font-size: 15px;
+            word-wrap: break-word;
+        }
+    
+        .card-brand {
+            font-size: 15px;
+            color: gray;
+        }
+    
+        .card-price {
+            font-size: 15px;
+        }
+    
+        h5 {
+            color: #0B1013;
+    
+        }
+    
+        p {
+            color: #0B1013;
+        }
+    
+        span {
+            color: #0B1013;
+        }
+    }
+    
+
 }

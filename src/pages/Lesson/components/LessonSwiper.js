@@ -15,10 +15,17 @@ import { Link } from 'react-router-dom';
 import '../style/Lesson.css';
 // map彈跳視窗
 import LessonConfirmAlert from './LessonConfirmAlert';
+// 三個座標
 const center = [
   { lat: 25.041851651290155, lng: 121.55534122649684 },
   { lat: 25.031099292075666, lng: 121.46450972649664 },
   { lat: 24.155632861663089, lng: 120.65585056881044 },
+];
+// 三個店名
+const lessonClassName = [
+  'HRC 舞蹈工作室【台北忠孝館】',
+  'HRC 舞蹈工作室【板橋民生旗艦館】',
+  'HRC 舞蹈工作室【台中精誠館】',
 ];
 export default function LessonSwiper() {
   return (
@@ -42,7 +49,10 @@ export default function LessonSwiper() {
                 </div>
                 <div className="h-15 d-flex ">
                   <div className="w-15 coolermap d-inline-block">
-                    <LessonConfirmAlert center={center[0]} />
+                    <LessonConfirmAlert
+                      center={center[0]}
+                      lessonClassName={lessonClassName[0]}
+                    />
                   </div>
                   <div className=" w-75 fs-6 fw-bold">
                     <p className="h-100 d-flex align-items-center">
@@ -85,10 +95,13 @@ export default function LessonSwiper() {
                 </div>
                 <div className="h-15 d-flex ">
                   <div className="w-15 coolermap d-inline-block">
-                    <LessonConfirmAlert center={center[1]} />
+                    <LessonConfirmAlert
+                      center={center[1]}
+                      lessonClassName={lessonClassName[1]}
+                    />
                   </div>
                   <div className=" w-75 fs-6 fw-bold">
-                    <p className="h-100 d-flex align-items-center">新埔店</p>
+                    <p className="h-100 d-flex align-items-center">新埔站</p>
                   </div>
                 </div>
                 <div className="h-55">
@@ -125,10 +138,13 @@ export default function LessonSwiper() {
                 </div>
                 <div className="h-15 d-flex ">
                   <div className="w-15 coolermap d-inline-block">
-                    <LessonConfirmAlert center={center[1]} />
+                    <LessonConfirmAlert
+                      center={center[1]}
+                      lessonClassName={lessonClassName[1]}
+                    />
                   </div>
                   <div className=" w-75 fs-6 fw-bold">
-                    <p className="h-100 d-flex align-items-center">新埔店</p>
+                    <p className="h-100 d-flex align-items-center">新埔站</p>
                   </div>
                 </div>
                 <div className="h-55">
@@ -159,7 +175,10 @@ export default function LessonSwiper() {
                 </div>
                 <div className="h-15 d-flex ">
                   <div className="w-15 coolermap d-inline-block">
-                    <LessonConfirmAlert center={center[2]} />
+                    <LessonConfirmAlert
+                      center={center[2]}
+                      lessonClassName={lessonClassName[2]}
+                    />
                   </div>
                   <div className=" w-75 fs-6 fw-bold">
                     <p className="h-100 d-flex align-items-center"></p>

@@ -39,6 +39,23 @@
     }
 }
 
+// 筆電版
+@media screen and (max-width: 1400px) {
+    .recordCard {
+        p {
+            font-size: .8rem;
+        }
+    }
+
+    .recordCard:hover {
+        p {
+            font-weight: 600;
+            font-size: .8rem;
+            transform: skew(-10deg, 0deg);
+        }
+    }
+}
+
 // 手機版
 @media screen and (max-width: 1200px) {
     .recordCard {
@@ -50,11 +67,5 @@
         h5 {
             margin: 0;
         }
-        // h6 {
-        //     padding-left: 3%;
-        // }
-        // h5 {
-        //     padding-right: 3%;
-        // }
     }
 }

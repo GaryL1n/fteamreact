@@ -143,7 +143,7 @@ const CreditForm = (props) => {
                 onFocus={rotateToZero}
                 defaultValue={creditForm.num1to4}
                 type="text"
-                className="checkout-input credit-invalid border-bottom w-20 focus-none text-gray bg-transparent"
+                className="checkout-input credit-invalid border-bottom w-20 text-gray bg-transparent"
                 maxLength={4}
                 autoComplete="off"
               />
@@ -156,7 +156,7 @@ const CreditForm = (props) => {
                 onFocus={rotateToZero}
                 defaultValue={creditForm.num5to8}
                 type="text"
-                className="checkout-input border-bottom w-20 focus-none text-gray bg-transparent"
+                className="checkout-input border-bottom w-20   text-gray bg-transparent"
                 maxLength={4}
                 autoComplete="off"
               />
@@ -169,7 +169,7 @@ const CreditForm = (props) => {
                 onFocus={rotateToZero}
                 defaultValue={creditForm.num9to12}
                 type="text"
-                className="checkout-input border-bottom w-20 focus-none text-gray bg-transparent"
+                className="checkout-input border-bottom w-20 text-gray bg-transparent"
                 maxLength={4}
                 autoComplete="off"
               />
@@ -182,7 +182,7 @@ const CreditForm = (props) => {
                 onFocus={rotateToZero}
                 defaultValue={creditForm.num13to16}
                 type="text"
-                className="checkout-input border-bottom w-20 focus-none text-gray bg-transparent"
+                className="checkout-input border-bottom w-20 text-gray bg-transparent"
                 maxLength={4}
                 autoComplete="off"
               />
@@ -202,7 +202,7 @@ const CreditForm = (props) => {
                   name="validMonth"
                   onFocus={rotateToZero}
                   defaultValue={creditForm.validMonth}
-                  className="checkout-input w-40 border-bottom  focus-none text-gray bg-transparent"
+                  className="checkout-input w-40 border-bottom    text-gray bg-transparent"
                   type="text"
                   maxLength={2}
                   placeholder={'MM'}
@@ -215,7 +215,7 @@ const CreditForm = (props) => {
                   name="validYear"
                   onFocus={rotateToZero}
                   defaultValue={creditForm.validYear}
-                  className="checkout-input w-40 border-bottom  focus-none text-gray bg-transparent"
+                  className="checkout-input w-40 border-bottom    text-gray bg-transparent"
                   type="text"
                   maxLength={2}
                   placeholder={'YY'}
@@ -235,7 +235,7 @@ const CreditForm = (props) => {
                   name="CVV"
                   onFocus={rotateToBack}
                   defaultValue={creditForm.CVV}
-                  className="checkout-input w-100 border-bottom  focus-none text-gray bg-transparent"
+                  className="checkout-input w-100 border-bottom    text-gray bg-transparent"
                   type="text"
                   maxLength={3}
                   autoComplete="off"

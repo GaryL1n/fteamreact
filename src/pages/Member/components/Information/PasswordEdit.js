@@ -7,7 +7,7 @@ import { alert } from '../../../../components/AlertComponent';
 const PasswordEdit = ({ setmoveTrain }) => {
   const { token, logout } = useContext(AuthContext);
   // 記錄表單每個欄位輸入值
-  const [fields, setFields] = useState({
+  const [material, setMaterial] = useState({
     password: '',
     newPassword: '',
     confirmPassword: '',
@@ -18,12 +18,12 @@ const PasswordEdit = ({ setmoveTrain }) => {
     newPassword: '',
     confirmPassword: '',
   });
-  // onChange存值到fields
-  const handleFieldsChange = (e) => {
-    setFields({ ...fields, [e.target.name]: e.target.value });
+  // onChange存值到material
+  const handleMaterialChange = (e) => {
+    setMaterial({ ...material, [e.target.name]: e.target.value });
   };
   // 記錄表單每個欄位有錯誤時的訊息
-  const [fieldErrors, setFieldErrors] = useState({
+  const [materialErrors, setMaterialErrors] = useState({
     password: '',
     newPassword: '',
     confirmPassword: '',
@@ -40,15 +40,15 @@ const PasswordEdit = ({ setmoveTrain }) => {
     e.preventDefault();
 
     // 填入錯誤訊息
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: e.target.validationMessage,
     });
   };
   // 表單更動時用於讓使用者清空某個正在修改的欄位的錯誤訊息
   const handleFormChange = (e) => {
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: '',
     });
   };
@@ -57,10 +57,10 @@ const PasswordEdit = ({ setmoveTrain }) => {
     // 先阻擋預設送出行為
     e.preventDefault();
     // 如果新密碼與確認密碼不一樣
-    if (fields.newPassword !== fields.confirmPassword) {
+    if (material.newPassword !== material.confirmPassword) {
       // 填入錯誤訊息
-      setFieldErrors({
-        ...fieldErrors,
+      setMaterialErrors({
+        ...materialErrors,
         newPassword: '密碼與確認密碼不符',
         confirmPassword: '密碼與確認密碼不符',
       });
@@ -71,7 +71,7 @@ const PasswordEdit = ({ setmoveTrain }) => {
     await axios
       .put(
         'http://localhost:3000/member/password',
-        { password: fields.password, newPassword: fields.newPassword },
+        { password: material.password, newPassword: material.newPassword },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -95,7 +95,7 @@ const PasswordEdit = ({ setmoveTrain }) => {
     <>
       <div className="h-100 d-flex justify-content-center align-items-center">
         {/* 修改密碼 */}
-        <div className="w-80 passwordEdit pt-5">
+        <div className="w-80 passwordEdit">
           <form
             className="text-center"
             // 表單點擊
@@ -105,47 +105,47 @@ const PasswordEdit = ({ setmoveTrain }) => {
             // 表單有更動時
             onChange={handleFormChange}
           >
-            <h4>USER Password</h4>
+            <h4>User Password</h4>
             <input
               type="password"
               name="password"
               autoComplete="off"
               required
-              value={fields.password}
-              onChange={handleFieldsChange}
+              value={material.password}
+              onChange={handleMaterialChange}
             />
-            <p>{fieldErrors.password}</p>
+            <p>{materialErrors.password}</p>
             <h4>New Password</h4>
             <input
               type="password"
               name="newPassword"
               autoComplete="off"
               required
-              value={fields.newPassword}
-              onChange={handleFieldsChange}
+              value={material.newPassword}
+              onChange={handleMaterialChange}
             />
-            <p>{fieldErrors.newPassword}</p>
-            <h4>Check Password</h4>
+            <p>{materialErrors.newPassword}</p>
+            <h4>Re-enter Password</h4>
             <input
               type="password"
               name="confirmPassword"
               autoComplete="off"
               required
-              value={fields.confirmPassword}
-              onChange={handleFieldsChange}
+              value={material.confirmPassword}
+              onChange={handleMaterialChange}
             />
-            <p>{fieldErrors.confirmPassword}</p>
+            <p>{materialErrors.confirmPassword}</p>
             <div className="d-flex justify-content-around">
               <button
                 onClick={(e) => {
                   // 阻擋按鈕預設行為
                   e.preventDefault();
                   // 如未更改資料 把表單恢復成原來的值
-                  setFields(leaveForm);
+                  setMaterial(leaveForm);
                   // 移動到顯示個人資料
                   setmoveTrain('translateY(0%)');
                   // 離開這個表單時把錯誤訊息清空
-                  setFieldErrors(leaveFormError);
+                  setMaterialErrors(leaveFormError);
                 }}
               >
                 Back

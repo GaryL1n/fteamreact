@@ -1,6 +1,21 @@
 import './style/Lesson.css';
 import { Link } from 'react-router-dom';
 
+// map彈跳視窗
+import LessonConfirmAlert from './components/LessonConfirmAlert';
+// 三個座標
+const center = [
+  { lat: 25.041851651290155, lng: 121.55534122649684 },
+  { lat: 25.031099292075666, lng: 121.46450972649664 },
+  { lat: 24.155632861663089, lng: 120.65585056881044 },
+];
+// 三個店名
+const lessonClassName = [
+  'HRC 舞蹈工作室【台北忠孝館】',
+  'HRC 舞蹈工作室【板橋民生旗艦館】',
+  'HRC 舞蹈工作室【台中精誠館】',
+];
+
 const LessonPhone = () => {
   return (
     <>
@@ -37,24 +52,19 @@ const LessonPhone = () => {
                 <h6 className="card-title text-center fs-5 fw-bold">
                   【忠孝館】
                 </h6>
-                <div className="coolermap d-inline-block">
-                  <a href="#/">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      stroke="black"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
+                <div className="h-15 d-flex ">
+                  <div className="w-15 coolermap d-inline-block">
+                    <LessonConfirmAlert
+                      center={center[0]}
+                      lessonClassName={lessonClassName[0]}
+                    />
+                  </div>
+                  <div className=" w-75 fs-6 fw-bold">
+                    <p className="h-100 d-flex align-items-center">
+                      國父紀念館
+                    </p>
+                  </div>
                 </div>
-                <span className="fs-6 fw-bold"> 國父紀念館</span>
                 <p className=" card-text  pt-4">
                   HRC舞蹈工作室提供最優質的舞蹈教學服務，每月超過三百堂多樣化課程、數十種舞蹈風格，多元的課程選擇、由淺入深的漸進式學習，讓你輕鬆踏出舞蹈的第一步，打穩基礎、深根學習、挑戰自己！
                 </p>
@@ -78,24 +88,17 @@ const LessonPhone = () => {
                 <h6 className="card-title text-center fs-5 fw-bold">
                   【板橋民生旗艦館】
                 </h6>
-                <div className="coolermap d-inline-block">
-                  <a href="#/">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      stroke="black"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
+                <div className="h-15 d-flex ">
+                  <div className="w-15 coolermap d-inline-block">
+                    <LessonConfirmAlert
+                      center={center[1]}
+                      lessonClassName={lessonClassName[1]}
+                    />
+                  </div>
+                  <div className=" w-75 fs-6 fw-bold">
+                    <p className="h-100 d-flex align-items-center">新埔站</p>
+                  </div>
                 </div>
-                <span className="fs-6 fw-bold"> 新埔站</span>
                 <p className="card-text  pt-4">
                   HRC舞蹈工作室提供最優質的舞蹈教學服務，每月超過三百堂多樣化課程、數十種舞蹈風格，多元的課程選擇、由淺入深的漸進式學習，讓你輕鬆踏出舞蹈的第一步，打穩基礎、深根學習、挑戰自己！
                 </p>
@@ -119,24 +122,17 @@ const LessonPhone = () => {
                 <h6 className="card-title text-center fs-5 fw-bold">
                   【台中精誠館】
                 </h6>
-                <div className="coolermap d-inline-block">
-                  <a href="#/">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      stroke="black"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </a>
+                <div className="h-15 d-flex ">
+                  <div className="w-15 coolermap d-inline-block">
+                    <LessonConfirmAlert
+                      center={center[2]}
+                      lessonClassName={lessonClassName[2]}
+                    />
+                  </div>
+                  <div className=" w-75 fs-6 fw-bold">
+                    <p className="h-100 d-flex align-items-center"></p>
+                  </div>
                 </div>
-                <span className="fs-6 fw-bold"></span>
                 <p className="card-text  pt-4">
                   HRC舞蹈工作室提供最優質的舞蹈教學服務，每月超過三百堂多樣化課程、數十種舞蹈風格，多元的課程選擇、由淺入深的漸進式學習，讓你輕鬆踏出舞蹈的第一步，打穩基礎、深根學習、挑戰自己！
                 </p>

@@ -1,7 +1,6 @@
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
-import React, { useState, useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
+import React, { useState } from 'react';
 
 const FilterBox = (props) => {
   // 按鈕 SVG 開關
@@ -15,7 +14,7 @@ const FilterBox = (props) => {
   // double range input
   const [value, setValue] = useState([1200, 10000]);
   const handleChange = (e, newValue) => {
-    console.log('e.target.value===', newValue);
+    // console.log('e.target.value===', newValue);
     setValue(newValue);
     setFilter({
       ...filter,
@@ -23,6 +22,8 @@ const FilterBox = (props) => {
       orderfield: 'price',
     });
   };
+
+  console.log(messages);
 
   const [searchText, setSearchtext] = useState('');
   const handleSearchText = (e) => {
@@ -71,27 +72,11 @@ const FilterBox = (props) => {
     'purpleBox',
   ]);
 
-  // const colourRef = useRef(null);
-  // const colourGsap = () => {
-  //   gsap.from(colourRef.current, {
-  //     opacity: 0,
-  //     duration: 2,
-  //     ease: 'expo',
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   gsap.from(optionRef.current, {
-  //     opacity: 0,
-  //     duration: 2,
-  //     ease: 'expo',
-  //   });
-  // }, [colour]);
   return (
     <>
       <div className="row filterBox p-0 m-0">
-        <div className="col-10 d-flex justify-content-center">
-          <div className="col-3">
+        <div className="col-10 d-flex justify-content-center filterBoxRwd">
+          <div className="col-3 filterBoxItem">
             <div
               className="filter"
               onClick={() => {
@@ -181,7 +166,7 @@ const FilterBox = (props) => {
               </div>
             </div>
           </div>
-          <div className="col-3">
+          <div className="col-3 filterBoxItem">
             <div
               className="filter"
               onClick={() => {
@@ -291,7 +276,7 @@ const FilterBox = (props) => {
             </div>
           </div>
 
-          <div className="col-3">
+          <div className="col-3 filterBoxItem">
             <div
               className="filter"
               onClick={() => {
@@ -394,7 +379,7 @@ const FilterBox = (props) => {
             </div>
           </div>
 
-          <div className="col-3">
+          <div className="col-3 filterBoxItem">
             <div
               className="filter"
               onClick={() => {
@@ -576,11 +561,11 @@ const FilterBox = (props) => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
             </svg>

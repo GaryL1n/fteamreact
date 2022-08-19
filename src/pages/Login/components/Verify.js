@@ -4,20 +4,20 @@ import { alert } from '../../../components/AlertComponent';
 import { v4 as uuidv4 } from 'uuid';
 
 const Verify = ({
-  fields,
+  material,
   setVerify,
   endRegister,
-  setFields,
+  setMaterial,
   setLoginCard,
   setLoginLogoText,
   setLogoMove,
 }) => {
   // 紀錄Email跟驗證碼的值
   const [verification, setVerification] = useState({
-    email: fields.email,
+    email: material.email,
     verify: '',
   });
-  // onChange存值到fields
+  // onChange存值到material
   const handleverifyChange = (e) => {
     setVerification({ ...verification, [e.target.name]: e.target.value });
   };
@@ -62,7 +62,7 @@ const Verify = ({
       // 呈現註冊頁面
       setVerify(false);
       // 清空欄位
-      setFields({ ...endRegister });
+      setMaterial({ ...endRegister });
       // 頭貼狀態設回空字串
       // 卡片翻回去
       setLoginCard('');
@@ -95,7 +95,7 @@ const Verify = ({
             onChange={handleverifyChange}
           />
           <p>{fieldErrors.email}</p>
-          <h3>Verification</h3>
+          <h3>Verification Code</h3>
           <input
             type="text"
             name="verify"

@@ -11,6 +11,7 @@ import { height } from '@mui/system';
 import AuthContext from '../../components/AuthContext';
 import Avatar from '@mui/material/Avatar';
 import { alert } from '../Carts/Nathan_components/AlertComponent';
+import { AddToCartalert } from './cus_component/AddToCartComponent';
 import { gsap } from 'gsap';
 
 function Cus_product_detail(props) {
@@ -58,10 +59,10 @@ function Cus_product_detail(props) {
             })
             .then((res) => {
               if (res.data.success) {
-                alert('加入成功');
+                AddToCartalert('加入成功');
                 setCartTotalDep((prev) => prev + 1);
               } else {
-                alert('商品已存在購物車');
+                AddToCartalert('商品已存在購物車');
               }
             });
         } else {
@@ -114,21 +115,21 @@ function Cus_product_detail(props) {
   }, [messageDep]);
 
   useEffect(() => {
-    gsap.from(titleRef.current, { opacity: 0, x: 50, duration: 1 });
-    gsap.from(productRef.current, { opacity: 0, x: -50, duration: 2 });
-    gsap.from(list1Ref.current, { opacity: 0, x: 20, duration: 2 });
-    gsap.from(list2Ref.current, { opacity: 0, x: 30, duration: 2 });
-    gsap.from(list3Ref.current, { opacity: 0, x: 40, duration: 2 });
-    gsap.from(list4Ref.current, { opacity: 0, x: 50, duration: 2 });
-    gsap.from(list5Ref.current, { opacity: 0, x: 60, duration: 2 });
-    gsap.from(emptyRef.current, { opacity: 0, y: 20, duration: 2 });
+    gsap.from(titleRef.current, { opacity: 0, x: -50, duration: 1 });
+    gsap.from(productRef.current, { opacity: 0, x: -50,delay:.3, duration: 2 });
+    gsap.from(list1Ref.current, { opacity: 0, x: -20,delay:.6, duration: 2 });
+    gsap.from(list2Ref.current, { opacity: 0, x: -30,delay:.9, duration: 2 });
+    gsap.from(list3Ref.current, { opacity: 0, x: -40,delay:1.2, duration: 2 });
+    gsap.from(list4Ref.current, { opacity: 0, x: -50,delay:1.5,  duration: 2 });
+    gsap.from(list5Ref.current, { opacity: 0, x: -60,delay:1.7, duration: 2 });
+    gsap.from(emptyRef.current, { opacity: 0, y: 20,delay:1.5, duration: 2 });
   }, []);
 
   return (
     <>
       <div className="w-100 vh-100 d-flex justify-content-end align-items-end">
-        <div className="work-area col-12 col-md-10 p-0">
-          <div className="d-flex px-5">
+        <div className="work-area col-12 col-md-10 p-0 overflow-hidden" >
+          <div className="d-flex flex-column flex-sm-row px-5">
             <div className="left col-12 col-sm-6 ">
               <p>Created By {shareDetailData.mem_name} </p>
               <h2 ref={titleRef}>{shareDetailData.custom_product_name}</h2>
@@ -140,7 +141,7 @@ function Cus_product_detail(props) {
                 />
               </div>
               <div className=" cus_data_tab" ref={list1Ref}>
-                <DataTabs shareDetailData={shareDetailData} />
+                <DataTabs shareDetailData={shareDetailData} messageboard={messageboard} />
               </div>
             </div>
             <div className="right col-12 col-sm-6 d-flex flex-column ">
@@ -249,7 +250,7 @@ function Cus_product_detail(props) {
                           <div className="col-2">
                             <Avatar sx={{ bgcolor: 'black'[900] }}>
                               <img
-                                src={`http://localhost:3000/avatar/${v.mem_avatar}`}
+                                src={v.mem_avatar}
                                 className="img-fluid"
                               />
                             </Avatar>
@@ -260,6 +261,7 @@ function Cus_product_detail(props) {
                               <span className="text-warning">{v.stars}</span>
                             </h6>
                             <p>{v.comment}</p>
+                            <p>{v.created_time}</p>
                           </div>
                         </div>
                       );

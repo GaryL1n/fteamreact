@@ -34,16 +34,16 @@ const LoginMember = ({
   // 眼睛查看密碼
   const [memberSeePassword, setMemberSeePassword] = useState(false);
   // 記錄表單每個欄位輸入值
-  const [fields, setFields] = useState({
+  const [material, setMaterial] = useState({
     account: '',
     password: '',
   });
-  // onChange存值到fields
-  const handleFieldsChange = (e) => {
-    setFields({ ...fields, [e.target.name]: e.target.value });
+  // onChange存值到material
+  const handleMaterialChange = (e) => {
+    setMaterial({ ...material, [e.target.name]: e.target.value });
   };
   // 記錄表單每個欄位有錯誤時的訊息
-  const [fieldErrors, setFieldErrors] = useState({
+  const [materialErrors, setMaterialErrors] = useState({
     account: '',
     password: '',
   });
@@ -52,21 +52,21 @@ const LoginMember = ({
     // 先阻擋預設行為-泡泡訊息
     e.preventDefault();
     // 填入錯誤訊息
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: e.target.validationMessage,
     });
   };
   // 表單更動時用於讓使用者清空某個正在修改的欄位的錯誤訊息
   const handleFormChange = (e) => {
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: '',
     });
   };
   const clickErrorText = (e) => {
-    setFieldErrors({
-      ...fieldErrors,
+    setMaterialErrors({
+      ...materialErrors,
       [e.target.name]: '',
     });
   };
@@ -77,7 +77,7 @@ const LoginMember = ({
 
     const response = await axios.post(
       'http://localhost:3000/member/login',
-      fields
+      material
     );
     // 如果登入成功
     if (response.data.success) {
@@ -102,7 +102,15 @@ const LoginMember = ({
   return (
     <>
       <div className="h-100 w-100 LoginMember LoginFront">
-        <div className="w-100 LoginLogoRWDbox">
+        <div
+          className="w-100 LoginLogoRWDbox"
+          onClick={() => {
+            setMaterial({
+              account: 'zzz',
+              password: 'zzz',
+            });
+          }}
+        >
           <LoginLogo loginLogoText={loginLogoText} logoMove={logoMove} />
         </div>
         <form
@@ -121,11 +129,11 @@ const LoginMember = ({
             name="account"
             required
             autoComplete="off"
-            value={fields.account}
-            onChange={handleFieldsChange}
+            value={material.account}
+            onChange={handleMaterialChange}
             onClick={clickErrorText}
           />
-          <p>{fieldErrors.account}</p>
+          <p>{materialErrors.account}</p>
           <h3>Password</h3>
           <input
             type={memberSeePassword ? 'text' : 'password'}
@@ -133,8 +141,8 @@ const LoginMember = ({
             name="password"
             required
             autoComplete="off"
-            value={fields.password}
-            onChange={handleFieldsChange}
+            value={material.password}
+            onChange={handleMaterialChange}
             onClick={clickErrorText}
             className="passwordInput"
           />
@@ -167,7 +175,7 @@ const LoginMember = ({
               />
             </svg>
           )}
-          <p>{fieldErrors.password}</p>
+          <p>{materialErrors.password}</p>
           <div className="d-flex justify-content-center mb-4">
             <button className="custom-btn btn-8">
               <span>LOGIN</span>

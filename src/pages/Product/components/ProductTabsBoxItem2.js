@@ -9,10 +9,8 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 import axios from '../commons/axios';
-
 const ProductTabsBoxItem2 = (props) => {
   const { priceData } = props;
-
   const data = [
     {
       name: 'Jul',
@@ -21,6 +19,26 @@ const ProductTabsBoxItem2 = (props) => {
     },
     {
       name: 'Aug',
+      uv: 100,
+      amt: 150,
+    },
+    {
+      name: 'Mar',
+      uv: 100,
+      amt: 0,
+    },
+    {
+      name: 'Apr',
+      uv: 100,
+      amt: 150,
+    },
+    {
+      name: 'May',
+      uv: 100,
+      amt: 0,
+    },
+    {
+      name: 'Jun',
       uv: 100,
       amt: 150,
     },

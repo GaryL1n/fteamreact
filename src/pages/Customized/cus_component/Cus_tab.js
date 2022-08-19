@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
@@ -32,77 +32,84 @@ function a11yProps(index) {
 }
 
 export default function Cus_tab(props) {
-  const { setBgcolor, bgcolor, bgimgName, setBgimgName,setPatternName,setStickerName,setText,originalPrice,setPrice } = props;
+  const {
+    setBgcolor,
+    bgcolor,
+    bgimgName,
+    setBgimgName,
+    setPatternName,
+    setStickerName,
+    setText,
+    originalPrice,
+    setPrice,
+    setBgimgdep,
+  } = props;
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const [BGprice,setBGPrice]=useState(100);
-  const [patternPrice,setPatternPrice]=useState(100);
-  const [stickerPrice,setStickerPrice]=useState(100);
+  const [BGprice, setBGPrice] = useState(100);
+  const [patternPrice, setPatternPrice] = useState(100);
+  const [stickerPrice, setStickerPrice] = useState(100);
 
-  
-
-  useEffect(()=>{
-    setPrice(originalPrice+BGprice+patternPrice+stickerPrice)
-  },[BGprice,patternPrice,stickerPrice])
+  useEffect(() => {
+    setPrice(originalPrice + BGprice + patternPrice + stickerPrice);
+  }, [BGprice, patternPrice, stickerPrice]);
 
   const selectBGName = (e) => {
     const newSelectBg = e.target.value;
     setBgimgName(newSelectBg);
+    setBgimgdep(1);
 
-    if(newSelectBg==='style_01'){
-      setBGPrice(100)
+    if (newSelectBg === 'style_01') {
+      setBGPrice(100);
     }
-    if(newSelectBg==='style_02'){
-      setBGPrice(200)
+    if (newSelectBg === 'style_02') {
+      setBGPrice(200);
     }
-    if(newSelectBg==='style_03'){
-      setBGPrice(300)
+    if (newSelectBg === 'style_03') {
+      setBGPrice(300);
     }
-    if(newSelectBg==='style_04'){
-      setBGPrice(400)
+    if (newSelectBg === 'style_04') {
+      setBGPrice(400);
     }
   };
- 
 
-  const selectPatternName = (e)=>{
+  const selectPatternName = (e) => {
     const newSelectPattern = e.target.value;
-    setPatternName(newSelectPattern)
-    if(newSelectPattern==='Disturb'){
-      setPatternPrice(100)
+    setPatternName(newSelectPattern);
+    if (newSelectPattern === 'Disturb') {
+      setPatternPrice(100);
     }
-    if(newSelectPattern==='Parallel'){
-      setPatternPrice(200)
+    if (newSelectPattern === 'Parallel') {
+      setPatternPrice(200);
     }
-    if(newSelectPattern==='Startwave'){
-      setPatternPrice(300)
+    if (newSelectPattern === 'Startwave') {
+      setPatternPrice(300);
     }
-    if(newSelectPattern==='Triangles'){
-      setPatternPrice(400)
+    if (newSelectPattern === 'Triangles') {
+      setPatternPrice(400);
     }
-  }
+  };
 
   const selectStickerName = (e) => {
     const newSelectSticker = e.target.value;
     setStickerName(newSelectSticker);
-    if(newSelectSticker==='Dot'){
-      setStickerPrice(100)
+    if (newSelectSticker === 'Dot') {
+      setStickerPrice(100);
     }
-    if(newSelectSticker==='skew'){
-      setStickerPrice(200)
+    if (newSelectSticker === 'skew') {
+      setStickerPrice(200);
     }
-    if(newSelectSticker==='waves'){
-      setStickerPrice(300)
+    if (newSelectSticker === 'waves') {
+      setStickerPrice(300);
     }
-    if(newSelectSticker==='stars'){
-      setStickerPrice(400)
+    if (newSelectSticker === 'stars') {
+      setStickerPrice(400);
     }
-
   };
-  
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -189,19 +196,17 @@ export default function Cus_tab(props) {
             </label>
           </div>
         </div>
-
-       
       </TabPanel>
       <TabPanel value={value} index={1}>
         <div class="cus-select-box d-flex justify-content-between">
-        <div className="cus_select">
+          <div className="cus_select">
             <label>
               <input
                 type="radio"
                 value="Disturb"
                 name="cus-pattern"
                 className="cus-radio"
-                onChange={selectPatternName} 
+                onChange={selectPatternName}
               />
               <img src="/imgs/Customized/pattern/Disturb.png" alt="style" />
             </label>
@@ -213,7 +218,7 @@ export default function Cus_tab(props) {
                 value="Parallel"
                 name="cus-pattern"
                 className="cus-radio"
-                onChange={selectPatternName} 
+                onChange={selectPatternName}
               />
               <img src="/imgs/Customized/pattern/Parallel.png" alt="style" />
             </label>
@@ -225,7 +230,7 @@ export default function Cus_tab(props) {
                 value="Startwave"
                 name="cus-pattern"
                 className="cus-radio"
-                onChange={selectPatternName} 
+                onChange={selectPatternName}
               />
               <img src="/imgs/Customized/pattern/Startwave.png" alt="style" />
             </label>
@@ -237,15 +242,11 @@ export default function Cus_tab(props) {
                 value="Triangles"
                 name="cus-pattern"
                 className="cus-radio"
-                onChange={selectPatternName} 
+                onChange={selectPatternName}
               />
               <img src="/imgs/Customized/pattern/Triangles.png" alt="style" />
             </label>
           </div>
-
-          
-
-
         </div>
         <div class="board-bk w-100 mt-3">
           <input
@@ -257,21 +258,20 @@ export default function Cus_tab(props) {
         </div>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        
         <div class="cus-select-box d-flex justify-content-between">
-        <div className="cus_select">
+          <div className="cus_select">
             <label>
               <input
                 type="radio"
                 value="Dot"
                 name="cus-sticker"
                 className="cus-radio"
-                onChange={selectStickerName} 
+                onChange={selectStickerName}
               />
               <img src="/imgs/Customized/sticker/Dot.png" alt="style" />
             </label>
           </div>
-          
+
           <div className="cus_select">
             <label>
               <input
@@ -279,7 +279,7 @@ export default function Cus_tab(props) {
                 value="skew"
                 name="cus-sticker"
                 className="cus-radio"
-                onChange={selectStickerName} 
+                onChange={selectStickerName}
               />
               <img src="/imgs/Customized/sticker/skew.png" alt="style" />
             </label>
@@ -291,7 +291,7 @@ export default function Cus_tab(props) {
                 value="waves"
                 name="cus-sticker"
                 className="cus-radio"
-                onChange={selectStickerName} 
+                onChange={selectStickerName}
               />
               <img src="/imgs/Customized/sticker/waves.png" alt="style" />
             </label>
@@ -303,7 +303,7 @@ export default function Cus_tab(props) {
                 value="stars"
                 name="cus-sticker"
                 className="cus-radio"
-                onChange={selectStickerName} 
+                onChange={selectStickerName}
               />
               <img src="/imgs/Customized/sticker/stars.png" alt="style" />
             </label>
@@ -311,14 +311,15 @@ export default function Cus_tab(props) {
         </div>
       </TabPanel>
       <TabPanel value={value} index={3}>
-      <div className='cus-select-box'>
-        <label>
-           <input type="text" placeholder='your text' onChange={(e)=>(setText(e.target.value))}/>
-          
-        </label>
-
-      </div>
-       
+        <div className="cus-select-box">
+          <label>
+            <input
+              type="text"
+              placeholder="your text"
+              onChange={(e) => setText(e.target.value)}
+            />
+          </label>
+        </div>
       </TabPanel>
     </Box>
   );

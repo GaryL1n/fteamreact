@@ -1,5 +1,5 @@
 .cooler_ScrollBox {
-  max-height: 80vh;
+  max-height: 69vh;
   overflow-x: hidden;
   overflow-y: overlay;
 }
@@ -10,4 +10,12 @@
 
 .cooler_ScrollBox::-webkit-scrollbar-thumb {
   background-color: rgba(0, 238, 255, 0.294);
+}
+
+// ------------RWD------------------------
+
+@media (max-width: 1630px) {
+  .cooler_ScrollBox {
+    max-height: 60vh;
+  }
 }
