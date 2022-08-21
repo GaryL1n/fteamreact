@@ -1,4 +1,4 @@
-# StreetBoorn 6人電商作品 (測試請用 後端F-team-pro專案SQL資料夾裡的fteamproFinal.sql)
+# StreetBoorn 6人電商作品 (測試請用 後端F-team-pro專案SQL資料夾裡的fteampro.sql)
 
 後端專案連結 : https://github.com/GaryL1n/F-team-pro
 
