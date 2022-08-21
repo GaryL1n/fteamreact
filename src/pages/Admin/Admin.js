@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useContext } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/Admin.scss';
@@ -6,12 +6,18 @@ import { confirm } from '../../components/ConfirmComponent';
 import { alert } from '../../components/AlertComponent';
 import { Link } from 'react-router-dom';
 import { useSpinner } from '../../components/useSpinner/useSpinner';
+import AuthContext from '../../components/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
-  const { spinner, setLoading } = useSpinner(1500);
-  useEffect(() => {
-    setLoading(true);
-  }, []);
+  // const { spinner, setLoading } = useSpinner(1500);
+  // useEffect(() => {
+  //   setLoading(true);
+  // }, []);
+
+  const { grade } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   // 發fetch更新畫面用
   const [change, setChange] = useState('');
   // 接收會員的狀態 雖然沒用到但先放著
@@ -22,6 +28,11 @@ const Admin = () => {
   const [searchTrueFalse, setSearchTrueFalse] = useState('');
 
   useEffect(() => {
+    if (grade !== 'hight') {
+      alert('請先登入');
+      navigate('/login');
+      return;
+    }
     // 拿到所有會員資料
     axios.get('http://localhost:3000/member/all').then((res) => {
       // 用該狀態先取得所有會員資料

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, CSSProperties } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import FilterBox from './components/FilterBox';
 import ToolBox from './components/ToolBox';
 import './styles/ProductMain.scss';
@@ -15,7 +15,7 @@ const ProductMain = (props) => {
     setCartTotalDep,
     setProductBg,
   } = props;
-
+  // gsap 動畫用
   const productCardRef = useRef(null);
   const toolBoxRef = useRef(null);
 

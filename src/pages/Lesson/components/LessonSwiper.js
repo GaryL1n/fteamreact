@@ -31,6 +31,7 @@ export default function LessonSwiper() {
   return (
     <>
       <Swiper
+        shortSwipes={false}
         loop={true}
         navigation={true}
         modules={[Navigation]}

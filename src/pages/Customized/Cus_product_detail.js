@@ -261,7 +261,7 @@ function Cus_product_detail(props) {
                               <span className="text-warning">{v.stars}</span>
                             </h6>
                             <p>{v.comment}</p>
-                            <p>{v.created_time}</p>
+                            {/* <p>{v.created_time}</p> */}
                           </div>
                         </div>
                       );

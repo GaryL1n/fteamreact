@@ -107,6 +107,9 @@ const LessonCard = () => {
         </svg>
       ) : (
         lessonCard.map((v, i) => {
+          let lessonDays = parseInt(
+            (new Date(v.duringtime_begin) - new Date()) / 1000 / 60 / 60 / 24
+          );
           return (
             <div className="m-2 lessonCard m-3" key={uuidv4()}>
               <div className="d-flex align-items-center text-center lessonhead">
@@ -118,17 +121,27 @@ const LessonCard = () => {
                   <span>End</span> {v.duringtime_end}
                 </p>
                 <p className="col-3 m-0">
-                  <span className="leftoverDaysNumber">
-                    {/* 毫秒換算成剩下天數 */}
-                    {parseInt(
-                      (new Date(v.duringtime_begin) - new Date()) /
-                        1000 /
-                        60 /
-                        60 /
-                        24
-                    )}
-                  </span>
-                  <span> Days</span>
+                  {lessonDays < 1 ? (
+                    lessonDays === 0 ? (
+                      <span className="leftoverDaysNumber">Ready to start</span>
+                    ) : (
+                      ''
+                    )
+                  ) : (
+                    <>
+                      <span className="leftoverDaysNumber">
+                        {/* 毫秒換算成剩下天數 */}
+                        {parseInt(
+                          (new Date(v.duringtime_begin) - new Date()) /
+                            1000 /
+                            60 /
+                            60 /
+                            24
+                        )}
+                      </span>
+                      <span> Days</span>
+                    </>
+                  )}
                 </p>
               </div>
               <div className="d-flex justify-content-center align-items-center lessonbody">

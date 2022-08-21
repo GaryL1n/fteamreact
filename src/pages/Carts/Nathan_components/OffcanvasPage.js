@@ -64,7 +64,7 @@ export default function OffcanvasPage(props) {
     addressMsg: '',
   });
   const [delivery, setDelivery] = useState('toHome');
-  const [paySelected, setPaySelected] = useState('cash');
+  const [paySelected, setPaySelected] = useState('credit');
   const [isCheckoutFinish, setIsCheckoutFinish] = useState(false);
   // 宅配欄位handler
   const toHomeFormHandler = (e) => {

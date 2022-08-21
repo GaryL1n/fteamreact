@@ -15,7 +15,7 @@ function Lesson_card(props) {
     loginID,
     setCartTotalDep,
   } = props;
-  const [lessonDisplayDep, setLessonDisplayDep] = useState(0);
+  // const [lessonDisplayDep, setLessonDisplayDep] = useState(0);
   // useEffect(() => {
   //   danceRefresh();
   // }, [danceList]);
@@ -66,31 +66,40 @@ function Lesson_card(props) {
   // };
   useEffect(() => {
     fillterAllSelector();
-  }, [danceList, timeList, priceSortSelect]);
+  }, [timeList, danceList, priceSortSelect]);
   const fillterAllSelector = () => {
     const oringinRaw = JSON.parse(JSON.stringify(lessonRaw));
     if (
-      danceList === 'DANCE' &&
       timeList === 'TIME' &&
+      danceList === 'DANCE' &&
       priceSortSelect === 'PRICE'
     ) {
       setLessonDisplay(lessonRaw);
     } else {
       let newLessonDisplay = oringinRaw.filter((v, i) => {
-        return v.duringtime_begin.slice(5, 7).includes(timeList);
+        if (timeList !== 'TIME') {
+          return v.duringtime_begin.slice(5, 7).includes(timeList);
+        } else {
+          return oringinRaw;
+        }
       });
       newLessonDisplay = newLessonDisplay.filter((v, i) => {
-        return v.type.includes(danceList);
+        if (danceList !== 'DANCE') {
+          return v.type.includes(danceList);
+        } else {
+          return newLessonDisplay;
+        }
       });
-      if (priceSortSelect === 'Low') {
-        newLessonDisplay = newLessonDisplay.sort((a, b) => {
-          return a.price - b.price;
-        });
-      }
-      if (priceSortSelect === 'High') {
-        newLessonDisplay = newLessonDisplay.sort((a, b) => {
-          return b.price - a.price;
-        });
+      if (priceSortSelect !== 'PRICE') {
+        if (priceSortSelect === 'Low') {
+          newLessonDisplay = newLessonDisplay.sort((a, b) => {
+            return a.price - b.price;
+          });
+        } else if (priceSortSelect === 'High') {
+          newLessonDisplay = newLessonDisplay.sort((a, b) => {
+            return b.price - a.price;
+          });
+        }
       }
       setLessonDisplay(newLessonDisplay);
       // setLessonDisplayDep((prev) => prev + 1);

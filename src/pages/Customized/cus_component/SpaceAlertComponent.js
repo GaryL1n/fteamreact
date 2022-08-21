@@ -37,6 +37,7 @@ const Confirmation = ({
           loop
           src="https://lottie.host/aca8b393-2a51-43c1-a317-798dbea68145/zRa8hxl8e8.json"
           style={{ height: "200px", width: "200px" }}
+          speed={1}
         />
         {confirmation}</Modal.Body>
         <Modal.Footer className=" justify-content-center">

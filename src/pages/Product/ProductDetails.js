@@ -6,6 +6,7 @@ import './styles/ProductDetails.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AuthContext from '../../components/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { alert } from '../../components/AlertComponent';
 
 const ProductDetails = (props) => {
@@ -22,7 +23,9 @@ const ProductDetails = (props) => {
   const { setFavoritesNum, setCartTotalDep } = props;
 
   // auth為登入判斷(true,false) token為會員JWT的token logout是登出涵式
-  const { token } = useContext(AuthContext);
+  const { auth, token } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   // 收藏svg開關
   const [heart, setHeart] = useState(false);
 
@@ -58,32 +61,6 @@ const ProductDetails = (props) => {
     (v) => v === details.sid
   );
 
-  // 收藏成功提示訊息設定
-  const detailsSuccess = () => {
-    toast.success('Add Favorites Success', {
-      position: 'top-center',
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
-  // 取消收藏成功提示訊息設定
-  const detailsError = () => {
-    toast.error('Cancel Favorites Success', {
-      position: 'top-center',
-      autoClose: 1500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
   // 該商品資料
   const axiosProductDetails = async (productId) => {
     axios.get(`/product/${productId}`).then((res) => {
@@ -93,6 +70,12 @@ const ProductDetails = (props) => {
 
   // 收藏商品與取消收藏商品;
   const detailsFavorites = async () => {
+    // 防止沒有登入會員，拿不到token，server 崩潰
+    if (!auth) {
+      alert('請先登入會員');
+      navigate('/login');
+      return;
+    }
     const addFavorites = {
       sid: details.sid,
       favoriteImg: details.img,

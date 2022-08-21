@@ -205,7 +205,9 @@ function App() {
                     />
                     <Route
                       path="/customized/previous_creations"
-                      element={<Customized_collect />}
+                      element={
+                        <Customized_collect setCartTotalDep={setCartTotalDep} />
+                      }
                     />
                     <Route
                       path="/carts"

@@ -143,16 +143,16 @@ const FilterBox = (props) => {
               }}
             >
               <div className="priceFilterText">
-                <span className="pb-2">
-                  Min Price <h5>{value[0]}</h5>
+                <span className="pb-2 priceRangeSpan">
+                  Min Price <h5 className="priceRangeH5">{value[0]}</h5>
                 </span>
-                <span className="pb-2">
-                  Max Price <h5>{value[1]}</h5>
+                <span className="pb-2 priceRangeSpan">
+                  Max Price <h5 className="priceRangeH5">{value[1]}</h5>
                 </span>
               </div>
 
-              <div className="priceFilterInput">
-                <Box sx={{ width: '100%' }}>
+              <div className="priceFilterInput w-100 d-flex justify-content-center">
+                <Box sx={{ width: '88%' }}>
                   <Slider
                     getAriaLabel={() => 'Temperature range'}
                     value={value}
@@ -161,6 +161,8 @@ const FilterBox = (props) => {
                     // getAriaValueText={valuetext}
                     min={1200}
                     max={10000}
+                    color="secondary"
+                    size="string"
                   />
                 </Box>
               </div>

@@ -6,6 +6,8 @@ import './styles/Member.scss';
 import { gsap } from 'gsap';
 import axios from 'axios';
 import AuthContext from '../../components/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { alert } from '../../components/AlertComponent';
 
 const Member = ({ setCartTotalDep }) => {
   // 過場動畫
@@ -14,10 +16,13 @@ const Member = ({ setCartTotalDep }) => {
   //   setLoading(true);
   // }, []);
 
-  const { auth, token, logout, auths, grade, setAuths } = useContext(AuthContext);
+  const { auth, token, logout, auths, grade, setAuths } =
+    useContext(AuthContext);
 
   const queryParams = new URLSearchParams(window.location.search);
   const id = queryParams.get('id');
+
+  const navigate = useNavigate();
 
   const getGoogleUser = () => {
     axios
@@ -25,6 +30,11 @@ const Member = ({ setCartTotalDep }) => {
       .then((res) => {
         if (res) {
           console.log(123213, res.data);
+          if (res.data.info === undefined && res.data.token === undefined) {
+            alert('請先登入會員');
+            navigate('/login');
+            return;
+          }
           localStorage.setItem('user_info', JSON.stringify(res.data.info));
           localStorage.setItem('user_token', res.data.token);
           // 整個網站判斷有沒有登入

@@ -85,7 +85,7 @@ function MyMap(props) {
         center={center}
         zoom={
           toConvenceFrom.convenceStore !== ''
-            ? 16
+            ? 20
             : toConvenceFrom.convenceCountry !== ''
               ? 8
               : 5

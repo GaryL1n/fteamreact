@@ -21,7 +21,7 @@ const ProductList = (props) => {
   } = props;
 
   // auth為登入判斷(true,false) token為會員JWT的token logout是登出涵式
-  const { token } = useContext(AuthContext);
+  const { auth, token } = useContext(AuthContext);
   const navigate = useNavigate();
 
   // 為了購物車
@@ -31,6 +31,12 @@ const ProductList = (props) => {
   const [heart, setHeart] = useState(false);
   // 收藏商品與取消收藏商品;
   const getFavorites = async () => {
+    // 防止沒有登入會員，拿不到token，server 崩潰
+    if (!auth) {
+      alert('請先登入會員');
+      navigate('/login');
+      return;
+    }
     const addFavorites = {
       sid: sid,
       favoriteImg: img,

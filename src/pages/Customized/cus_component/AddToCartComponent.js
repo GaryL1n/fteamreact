@@ -36,7 +36,9 @@ const Confirmation = ({
           autoplay
           loop={false}
           src="https://lottie.host/9b050cdd-0383-4576-b06a-c21d57152f05/lokmRRhk6J.json"
+          // src="imgs/Customized/json/addToCart.json"
           style={{ height: "100px", width: "100px" }}
+          speed={2}
         />
         {confirmation}</Modal.Body>
         <Modal.Footer className=" justify-content-center">

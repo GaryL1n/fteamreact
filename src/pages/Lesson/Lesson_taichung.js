@@ -18,11 +18,11 @@ const Lesson_taichung = (props) => {
   //呈現老師資料
   const [teacherDisplay, setTeacherDisplay] = useState([]);
   // 舞種選單
-  const [danceList, setDanceList] = useState('');
+  const [danceList, setDanceList] = useState('DANCE');
   // 時間選單
-  const [timeList, setTimeList] = useState('');
+  const [timeList, setTimeList] = useState('TIME');
   // 價格選單
-  const [priceSortSelect, setPriceSortSelect] = useState('');
+  const [priceSortSelect, setPriceSortSelect] = useState('PRICE');
 
   // 舞種選項
   const danceListOption = ['Hip Hop', 'Popping', 'Locking', 'Choreography'];

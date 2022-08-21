@@ -168,13 +168,13 @@ const Carts = (props) => {
   const cartItemRef = useRef(null);
   // gsap setting
   useEffect(() => {
-    gsap.from(cartItemRef.current, {
-      display: 'none',
-      opacity: 0,
-      duration: 0.5,
-      delay: 1,
-      ease: 'expo',
-    });
+    // gsap.from(cartItemRef.current, {
+    //   display: 'none',
+    //   opacity: 0,
+    //   duration: 0.5,
+    //   delay: 1,
+    //   ease: 'expo',
+    // });
     gsap.from(checkoutRef.current, {
       opacity: 0.6,
       x: 200,

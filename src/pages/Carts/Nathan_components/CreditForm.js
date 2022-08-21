@@ -58,9 +58,36 @@ const CreditForm = (props) => {
       setCardType('請輸入卡號');
     }
   };
+  // 一鍵帶入測試卡號
+  const oneKeyPressHandler = () => {
+    if (creditForm.num_1 !== '') {
+      setCreditForm({
+        num_1: '',
+        num_2: '',
+        num_3: '',
+        num_4: '',
+        validMonth: '',
+        validYear: '',
+        CVV: '',
+      });
+    } else {
+      setCreditForm({
+        num_1: '4242',
+        num_2: '4242',
+        num_3: '4242',
+        num_4: '4242',
+        validMonth: '01',
+        validYear: '23',
+        CVV: '123',
+      });
+    }
+  };
   return (
     <div className="w-100 h-100 d-flex flex-column">
-      <div className=" w-100 h-10 d-flex step-page-title-wrap justify-content-center align-items-center">
+      <div
+        className="w-100 h-10 d-flex step-page-title-wrap justify-content-center align-items-center"
+        onClick={oneKeyPressHandler}
+      >
         <span className="d-block">Card Details</span>
       </div>
       <div className=" w-100 h-90 d-flex flex-column justify-content-around">
@@ -141,7 +168,7 @@ const CreditForm = (props) => {
                 onChange={creditFormHandler}
                 name="num_1"
                 onFocus={rotateToZero}
-                defaultValue={creditForm.num1to4}
+                defaultValue={creditForm.num_1}
                 type="text"
                 className="checkout-input credit-invalid border-bottom w-20 text-gray bg-transparent"
                 maxLength={4}
@@ -154,7 +181,7 @@ const CreditForm = (props) => {
                 onChange={creditFormHandler}
                 name="num_2"
                 onFocus={rotateToZero}
-                defaultValue={creditForm.num5to8}
+                defaultValue={creditForm.num_2}
                 type="text"
                 className="checkout-input border-bottom w-20   text-gray bg-transparent"
                 maxLength={4}
@@ -167,7 +194,7 @@ const CreditForm = (props) => {
                 onChange={creditFormHandler}
                 name="num_3"
                 onFocus={rotateToZero}
-                defaultValue={creditForm.num9to12}
+                defaultValue={creditForm.num_3}
                 type="text"
                 className="checkout-input border-bottom w-20 text-gray bg-transparent"
                 maxLength={4}
@@ -180,7 +207,7 @@ const CreditForm = (props) => {
                 onChange={creditFormHandler}
                 name="num_4"
                 onFocus={rotateToZero}
-                defaultValue={creditForm.num13to16}
+                defaultValue={creditForm.num_4}
                 type="text"
                 className="checkout-input border-bottom w-20 text-gray bg-transparent"
                 maxLength={4}

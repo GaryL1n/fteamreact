@@ -5,15 +5,14 @@ import axios from 'axios';
 import AuthContext from '../../components/AuthContext';
 import Prev_card from './cus_component/Prev_card';
 import './Customized_collect.scss';
-import {alert} from '../Carts/Nathan_components/AlertComponent'
+import { alert } from '../Carts/Nathan_components/AlertComponent';
 
 function Customized_collect(props) {
+  const { setCartTotalDep } = props;
   const [prevdata, setPrevData] = useState([]);
   const [cusShareData, setCusShareData] = useState([]);
   const { auth, token } = useContext(AuthContext);
-  const [ownDep,setOwnDep]=useState(0);
-  
-  
+  const [ownDep, setOwnDep] = useState(0);
 
   useEffect(() => {
     axios
@@ -59,6 +58,7 @@ function Customized_collect(props) {
                           prevdata={v}
                           singleShareData={v}
                           setOwnDep={setOwnDep}
+                          setCartTotalDep={setCartTotalDep}
                         />
                       );
                     })}

@@ -89,7 +89,8 @@ const LoginMember = ({
           // 整個網站判斷有沒有登入
           setAuths({ ...auths, token: response.data.token, auth: true });
           // 頁面轉向
-          navigate('/', { replace: true });
+          // navigate('/', { replace: true });
+          window.history.back();
         }
       });
     } else if (response.data.bollen === true) {

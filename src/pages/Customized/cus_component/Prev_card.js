@@ -5,9 +5,10 @@ import { alert } from '../../Carts/Nathan_components/AlertComponent';
 import { confirm } from '../../Carts/Nathan_components/ConfirmComponent';
 import { gsap } from 'gsap';
 import { deleteItemalert } from './DeleteItemComponent';
-import {questionalert} from './QuestionComponent'
+import { questionalert } from './QuestionComponent';
 function Prev_card(props) {
-  const { prevdata, singleShareData, setOwnDep } = props;
+  const { prevdata, singleShareData, setOwnDep, setCartTotalDep } = props;
+  // console.log(setCartTotalDep);
   // console.log(singleShareData)
   console.log(prevdata);
   const navigate = useNavigate();
@@ -22,11 +23,12 @@ function Prev_card(props) {
       if (res === true) {
         axios
           .delete(`http://localhost:3000/custom/delete?sid=${prevdata.sid}`)
-          .then(() => {
+          .then((res) => {
             let i = deleteItemalert('確認刪除');
             i.then((res) => {
               if (res === true) {
                 setOwnDep((prev) => prev - 1);
+                setCartTotalDep((prev) => prev + 1);
               }
             });
           });
