@@ -14,7 +14,7 @@
                 border-right: 1px solid black;
             }
             p {
-                font-size: .8rem;
+                font-size: 1.2rem;
             }
             h5 {
                 font-size: 1rem;
@@ -40,6 +40,19 @@
             position: absolute;
             top: 0;
             right: 0;
+        }
+    }
+}
+
+// 筆電版
+@media screen and (max-width: 1400px) {
+    .watchFavoriteWrap {
+        .watchFavoriteBox {
+            .adminfavoriteCard {
+                p {
+                    font-size: .8rem;
+                }
+            }
         }
     }
 }

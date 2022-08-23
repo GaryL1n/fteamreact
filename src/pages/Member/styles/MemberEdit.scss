@@ -110,6 +110,9 @@
 // 電腦版
 @media screen and (min-width: 1400px) {
     .memberEdit {
+        button {
+            height: 50%;
+        }
         button:hover {
             box-shadow: 8px 8px 0 0 #61dafbd2;
         }

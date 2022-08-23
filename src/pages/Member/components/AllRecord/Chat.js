@@ -192,6 +192,16 @@ const Chat = ({ selectItem }) => {
     setMessageState({ message: (message += e.native) });
   };
 
+  useEffect(() => {
+    function emojiClick() {
+      setEmojiBox(false);
+    }
+    document.querySelector('body').addEventListener('click', emojiClick);
+    return () => {
+      document.querySelector('body').removeEventListener('click', emojiClick);
+    };
+  }, []);
+
   // 判斷對話中有沒有含http 有的話包成連結 沒有的話直接顯示
   // {[message].filter((v, i) => v.includes('http')).length !== 0 ? (
   //   <a href={[message].filter((v, i) => v.includes('http'))}>
@@ -419,7 +429,8 @@ const Chat = ({ selectItem }) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
             className="cursorpointer"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setEmojiBox(!emojiBox);
             }}
           >
@@ -433,7 +444,12 @@ const Chat = ({ selectItem }) => {
         ) : (
           ''
         )} */}
-        <div className={emojiBox ? 'emojiBox' : 'd-none'}>
+        <div
+          className={emojiBox ? 'emojiBox' : 'd-none'}
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
           <Picker emojiSize={24} onEmojiSelect={emojiClick} />
         </div>
       </div>

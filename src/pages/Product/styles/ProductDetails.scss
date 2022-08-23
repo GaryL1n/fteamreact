@@ -124,3 +124,77 @@
     background-color: gray;
  
   }
+
+//    ------------------------- RWD -------------------------------
+
+@media screen and (max-width:600px) {
+    .detailsRwd{
+        flex-direction: column;
+    }
+    .productDetailsImg{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .productDetail{
+        width: 100%;
+    }
+    .productDetailBody{
+        width: 100%;
+        .detail-name{
+            font-size: 18px;
+        }
+        .detail-brand{
+            font-size: 16px;
+            color: gray;
+        }
+        .detail-price{
+            font-size: 18px;
+        }
+        span{
+            color: black;
+        }
+    }
+    .detail-int-cart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .detail-int-heart{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .detail-info{
+        width: 100%;
+        flex-grow: 1;
+        h5{
+            font-size: 18px;
+        }
+        p{
+            font-size: 16px;
+            line-height: 1.5rem;
+            letter-spacing: 0.05rem;
+            color: black;
+        }
+    }
+    .whoSeeName{
+        h5{
+            font-size: 14px;
+        }
+    }
+    .recharts-responsive-container{
+        width: 100%;
+        height: 100%;
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .whoSeeImgBox{
+        width: 100%;
+    }
+}

@@ -123,7 +123,7 @@ const LessonCard = () => {
                 <p className="col-3 m-0">
                   {lessonDays < 1 ? (
                     lessonDays === 0 ? (
-                      <span className="leftoverDaysNumber">Ready to start</span>
+                      <span className="leftoverDaysNumber">Ready</span>
                     ) : (
                       ''
                     )

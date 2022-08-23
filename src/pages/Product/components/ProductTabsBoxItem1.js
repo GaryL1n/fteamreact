@@ -36,6 +36,7 @@ const ProductTabsBoxItem1 = (props) => {
     adaptiveHeight: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    adaptiveHeight: true,
   };
 
   const [data, setData] = useState([]);

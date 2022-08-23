@@ -178,7 +178,7 @@ const ProductDetails = (props) => {
     <div className="w-100 vh-100 d-flex justify-content-end align-items-end">
       <div className="work-area col-10 pb-5 pe-5 text-danger">
         <div className="d-flex w-100">
-          <div className="d-flex mb-5 p-0 m-0  w-100">
+          <div className="d-flex mb-5 p-0 m-0  w-100 detailsRwd">
             <div className="col-7 productDetailsImg">
               <img src={`/imgs/Products/${details.img}`} alt="" />
             </div>
@@ -193,7 +193,7 @@ const ProductDetails = (props) => {
 
               <div className="detail-int-cart mb-3">
                 <button onClick={getCarts}>
-                  <span>Add to Bag</span>
+                  <span>Add to Carts</span>
                 </button>
               </div>
               <div className="detail-int-heart mb-5">

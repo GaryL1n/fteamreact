@@ -138,7 +138,7 @@ export default function Cus_tab(props) {
             disableRipple={true}
           />
           <Tab
-            label="Basic"
+            label="Text"
             {...a11yProps(3)}
             sx={{ width: '20%' }}
             disableRipple={true}

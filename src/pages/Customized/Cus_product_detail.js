@@ -276,7 +276,7 @@ function Cus_product_detail(props) {
                   ref={list4Ref}
                 >
                   <option value="✶✶✶✶✶" name="rate">
-                    EXICILLENT
+                   EXCELLENT
                   </option>
                   <option value="✶✶✶✶" name="rate">
                     LOVE IT

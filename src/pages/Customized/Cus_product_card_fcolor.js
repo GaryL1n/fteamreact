@@ -93,7 +93,7 @@ function Cus_product_card_fcolor(props) {
               <div className="cus_product_card" ref={cardRef}>
                 <p>{frontcolor}</p>
 
-                <h3 className="text-black">Choose the Color of Front Deck</h3>
+                <h3 className="text-black">Choose Front Deck's Color</h3>
                 <input
                   type="color"
                   className="front-deck-input"
